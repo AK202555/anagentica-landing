@@ -14,12 +14,19 @@ export default function AboutFounder() {
     <section id="about" className="py-16 md:py-24 bg-gray-50 dark:bg-white/[0.02]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInUp>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
-            {t(s.title)}
-          </h2>
-          <p className="text-center text-gray-500 dark:text-gray-400 mb-12 text-lg max-w-2xl mx-auto">
-            {t(s.subtitle)}
-          </p>
+          <div className="flex flex-col items-center mb-12">
+            <img
+              src="/photo-anas.jpg"
+              alt="Анас Хазиев"
+              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-4 border-white dark:border-white/10 shadow-lg mb-6"
+            />
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+              {t(s.title)}
+            </h2>
+            <p className="text-center text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              {t(s.subtitle)}
+            </p>
+          </div>
         </FadeInUp>
 
         {/* Stats */}
