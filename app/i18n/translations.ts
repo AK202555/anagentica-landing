@@ -296,6 +296,32 @@ export const translations = {
     taskPlaceholder: { ru: 'Что хотите автоматизировать или улучшить?', en: 'What do you want to automate or improve?' },
     submit: { ru: 'Записаться на разбор', en: 'Book a free audit' },
     telegram: { ru: 'Или напишите напрямую в', en: 'Or message us directly on' },
+    consent: {
+      ru: 'Я даю согласие на обработку моих персональных данных в соответствии с',
+      en: 'I consent to the processing of my personal data in accordance with the',
+    },
+    consentLink: {
+      ru: 'Политикой конфиденциальности',
+      en: 'Privacy Policy',
+    },
+    consentRequired: {
+      ru: 'Необходимо дать согласие на обработку персональных данных',
+      en: 'You must consent to personal data processing',
+    },
+  },
+
+  // ========== COOKIE CONSENT ==========
+  cookie: {
+    text: {
+      ru: 'Мы используем файлы cookie для улучшения работы сайта. Продолжая использование сайта, вы соглашаетесь с',
+      en: 'We use cookies to improve our website. By continuing to use the site, you agree to our',
+    },
+    policyLink: {
+      ru: 'Политикой конфиденциальности',
+      en: 'Privacy Policy',
+    },
+    accept: { ru: 'Принять', en: 'Accept' },
+    decline: { ru: 'Отклонить', en: 'Decline' },
   },
 
   // ========== FOOTER ==========
@@ -308,6 +334,25 @@ export const translations = {
       about: { ru: 'О нас', en: 'About' },
       contact: { ru: 'Контакты', en: 'Contact' },
     },
+    legal: {
+      privacy: { ru: 'Политика конфиденциальности', en: 'Privacy Policy' },
+      terms: { ru: 'Пользовательское соглашение', en: 'Terms of Use' },
+      offer: { ru: 'Публичная оферта', en: 'Public Offer' },
+    },
+    companyInfo: {
+      label: { ru: 'Реквизиты', en: 'Company details' },
+      name: 'ИП Хазиев Анас Расулович',
+      inn: { ru: 'ИНН: 773400990807', en: 'TIN: 773400990807' },
+      ogrnip: { ru: 'ОГРНИП: 325774600346498', en: 'PSRNIE: 325774600346498' },
+      email: 'info@anagentica.ru',
+      telegram: '@anagentica',
+    },
+  },
+
+  // ========== LEGAL PAGES ==========
+  legal: {
+    backToHome: { ru: '\u2190 На главную', en: '\u2190 Back to home' },
+    lastUpdated: { ru: 'Последнее обновление', en: 'Last updated' },
   },
 } as const;
 

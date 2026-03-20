@@ -7,12 +7,18 @@ import { translations } from '../i18n/translations';
 
 export default function CTA() {
   const [form, setForm] = useState({ name: '', contact: '', task: '' });
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const { t } = useLocale();
   const s = translations.cta;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      setConsentError(true);
+      return;
+    }
     console.log('Form submitted:', form);
     setSubmitted(true);
   };
@@ -79,6 +85,28 @@ export default function CTA() {
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/15 bg-white dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark transition-shadow resize-none"
                     placeholder={t(s.taskPlaceholder)}
                   />
+                </div>
+                <div className="space-y-1">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={consent}
+                      onChange={(e) => {
+                        setConsent(e.target.checked);
+                        if (e.target.checked) setConsentError(false);
+                      }}
+                      className="mt-1 w-4 h-4 rounded border-gray-300 dark:border-white/20 text-accent dark:text-accent-dark focus:ring-accent dark:focus:ring-accent-dark shrink-0"
+                    />
+                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                      {t(s.consent)}{' '}
+                      <a href="/privacy" className="text-accent dark:text-accent-dark hover:underline">
+                        {t(s.consentLink)}
+                      </a>
+                    </span>
+                  </label>
+                  {consentError && (
+                    <p className="text-xs text-red-500">{t(s.consentRequired)}</p>
+                  )}
                 </div>
                 <button
                   type="submit"

@@ -6,8 +6,9 @@ import { translations } from '../i18n/translations';
 export default function Footer() {
   const { t } = useLocale();
   const s = translations.footer;
+  const ci = s.companyInfo;
 
-  const footerLinks = [
+  const navLinks = [
     { label: t(s.links.services), href: '#services' },
     { label: t(s.links.approach), href: '#approach' },
     { label: t(s.links.cases), href: '#cases' },
@@ -15,11 +16,18 @@ export default function Footer() {
     { label: t(s.links.contact), href: '#cta' },
   ];
 
+  const legalLinks = [
+    { label: t(s.legal.privacy), href: '/privacy' },
+    { label: t(s.legal.terms), href: '/terms' },
+    { label: t(s.legal.offer), href: '/offer' },
+  ];
+
   return (
     <footer className="border-t border-gray-200 dark:border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
+        {/* Main footer row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
+          <div>
             <div className="text-lg font-bold text-accent dark:text-accent-dark mb-1">
               Anagentica
             </div>
@@ -28,8 +36,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="flex flex-wrap justify-center gap-6">
-            {footerLinks.map((link) => (
+          <nav className="flex flex-wrap gap-6">
+            {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -39,8 +47,41 @@ export default function Footer() {
               </a>
             ))}
           </nav>
+        </div>
 
-          <div className="text-sm text-gray-400 dark:text-gray-500">
+        {/* Company details + legal links */}
+        <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          {/* Company info */}
+          <div className="text-xs text-gray-400 dark:text-gray-500 space-y-1">
+            <div className="font-medium text-gray-500 dark:text-gray-400">{ci.name}</div>
+            <div>{t(ci.inn)} &middot; {t(ci.ogrnip)}</div>
+            <div>
+              {ci.email} &middot;{' '}
+              <a
+                href="https://t.me/anagentica"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent dark:hover:text-accent-dark transition-colors"
+              >
+                {ci.telegram}
+              </a>
+            </div>
+          </div>
+
+          {/* Legal links */}
+          <nav className="flex flex-wrap gap-4">
+            {legalLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-xs text-gray-400 dark:text-gray-500 hover:text-accent dark:hover:text-accent-dark transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="text-xs text-gray-400 dark:text-gray-500">
             &copy; 2025 Anagentica
           </div>
         </div>

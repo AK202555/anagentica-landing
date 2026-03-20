@@ -10,6 +10,7 @@ import TargetAudience from './components/TargetAudience';
 import AboutFounder from './components/AboutFounder';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <CookieConsent />
     </>
   );
 }
