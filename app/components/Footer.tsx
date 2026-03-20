@@ -28,8 +28,9 @@ export default function Footer() {
         {/* Main footer row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
           <div>
-            <div className="text-lg font-bold text-accent dark:text-accent-dark mb-1">
-              Anagentica
+            <div className="text-lg font-bold mb-1">
+              <span className="text-accent dark:text-accent-dark border-b-2 border-accent dark:border-accent-dark pb-0.5">An</span>
+              <span className="text-gray-900 dark:text-white">agentica</span>
             </div>
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {t(s.tagline)}
