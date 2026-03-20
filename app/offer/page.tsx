@@ -114,9 +114,7 @@ export default function OfferPage() {
         <p>
           Individual Entrepreneur Khaziev Anas Fatikhovich<br />
           TIN: 501905834304<br />
-          PSRNIE: 325774600419939<br />
-          Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
-          Telegram: <a href="https://t.me/velocity2025" target="_blank" rel="noopener noreferrer">@velocity2025</a>
+          PSRNIE: 325774600419939
         </p>
       </LegalLayout>
     );
@@ -233,9 +231,7 @@ export default function OfferPage() {
       <p>
         ИП Хазиев Анас Фатихович<br />
         ИНН: 501905834304<br />
-        ОГРНИП: 325774600419939<br />
-        Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
-        Telegram: <a href="https://t.me/velocity2025" target="_blank" rel="noopener noreferrer">@velocity2025</a>
+        ОГРНИП: 325774600419939
       </p>
     </LegalLayout>
   );

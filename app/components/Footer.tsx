@@ -56,17 +56,6 @@ export default function Footer() {
           <div className="text-xs text-gray-400 dark:text-gray-500 space-y-1">
             <div className="font-medium text-gray-500 dark:text-gray-400">{ci.name}</div>
             <div>{t(ci.inn)} &middot; {t(ci.ogrnip)}</div>
-            <div>
-              {ci.email} &middot;{' '}
-              <a
-                href="https://t.me/velocity2025"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-accent dark:hover:text-accent-dark transition-colors"
-              >
-                {ci.telegram}
-              </a>
-            </div>
           </div>
 
           {/* Legal links */}
