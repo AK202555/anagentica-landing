@@ -236,8 +236,8 @@ export const translations = {
   about: {
     title: { ru: 'Привет, я Анас — основатель Anagentica', en: 'Hi, I\'m Anas — founder of Anagentica' },
     subtitle: {
-      ru: '27 лет в ИТ. Последние 10 — на стыке бизнеса и технологий в крупнейших международных компаниях.',
-      en: '27 years in IT. The last 10 — at the intersection of business and technology in major international companies.',
+      ru: '15+ лет в ИТ. Последние годы — на стыке бизнеса и технологий в крупнейших международных компаниях.',
+      en: '15+ years in IT. Recent years — at the intersection of business and technology in major international companies.',
     },
     stats: [
       { value: { ru: '27 лет', en: '27 years' }, label: { ru: 'опыт', en: 'experience' } },
@@ -341,10 +341,10 @@ export const translations = {
     },
     companyInfo: {
       label: { ru: 'Реквизиты', en: 'Company details' },
-      name: 'ИП Хазиев Анас Расулович',
-      inn: { ru: 'ИНН: 773400990807', en: 'TIN: 773400990807' },
-      ogrnip: { ru: 'ОГРНИП: 325774600346498', en: 'PSRNIE: 325774600346498' },
-      email: 'info@anagentica.ru',
+      name: 'ИП Хазиев Анас Фатихович',
+      inn: { ru: 'ИНН: 501905834304', en: 'TIN: 501905834304' },
+      ogrnip: { ru: 'ОГРНИП: 325774600419939', en: 'PSRNIE: 325774600419939' },
+      email: 'tornad2020@yandex.ru',
       telegram: '@anagentica',
     },
   },

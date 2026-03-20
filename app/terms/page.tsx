@@ -12,8 +12,8 @@ export default function TermsPage() {
         <h2>1. General Provisions</h2>
         <p>
           These Terms of Use (hereinafter — the &quot;Agreement&quot;) govern the use of the website anagentica.ru
-          (hereinafter — the &quot;Website&quot;) operated by Individual Entrepreneur Khaziev Anas Rasulovich
-          (TIN: 773400990807, PSRNIE: 325774600346498), hereinafter — the &quot;Operator&quot;.
+          (hereinafter — the &quot;Website&quot;) operated by Individual Entrepreneur Khaziev Anas Fatikhovich
+          (TIN: 501905834304, PSRNIE: 325774600419939), hereinafter — the &quot;Operator&quot;.
         </p>
         <p>
           By accessing and using the Website, you accept these Terms in full. If you disagree with any provision,
@@ -76,10 +76,10 @@ export default function TermsPage() {
 
         <h2>9. Contact Information</h2>
         <p>
-          Individual Entrepreneur Khaziev Anas Rasulovich<br />
-          TIN: 773400990807<br />
-          PSRNIE: 325774600346498<br />
-          Email: <a href="mailto:info@anagentica.ru">info@anagentica.ru</a><br />
+          Individual Entrepreneur Khaziev Anas Fatikhovich<br />
+          TIN: 501905834304<br />
+          PSRNIE: 325774600419939<br />
+          Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
           Telegram: <a href="https://t.me/anagentica" target="_blank" rel="noopener noreferrer">@anagentica</a>
         </p>
       </LegalLayout>
@@ -92,7 +92,7 @@ export default function TermsPage() {
       <p>
         Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует использование
         сайта anagentica.ru (далее — «Сайт»), которым управляет Индивидуальный предприниматель
-        Хазиев Анас Расулович (ИНН: 773400990807, ОГРНИП: 325774600346498), далее — «Оператор».
+        Хазиев Анас Фатихович (ИНН: 501905834304, ОГРНИП: 325774600419939), далее — «Оператор».
       </p>
       <p>
         Используя Сайт, вы принимаете настоящее Соглашение в полном объёме. Если вы не согласны
@@ -156,10 +156,10 @@ export default function TermsPage() {
 
       <h2>9. Контактная информация</h2>
       <p>
-        ИП Хазиев Анас Расулович<br />
-        ИНН: 773400990807<br />
-        ОГРНИП: 325774600346498<br />
-        Email: <a href="mailto:info@anagentica.ru">info@anagentica.ru</a><br />
+        ИП Хазиев Анас Фатихович<br />
+        ИНН: 501905834304<br />
+        ОГРНИП: 325774600419939<br />
+        Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
         Telegram: <a href="https://t.me/anagentica" target="_blank" rel="noopener noreferrer">@anagentica</a>
       </p>
     </LegalLayout>

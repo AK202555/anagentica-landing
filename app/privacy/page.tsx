@@ -11,8 +11,8 @@ export default function PrivacyPage() {
       <LegalLayout title="Privacy Policy">
         <h2>1. General Provisions</h2>
         <p>
-          This Privacy Policy governs the processing of personal data by Individual Entrepreneur Khaziev Anas Rasulovich
-          (TIN: 773400990807, PSRNIE: 325774600346498), hereinafter referred to as the &quot;Operator&quot;, operating the website
+          This Privacy Policy governs the processing of personal data by Individual Entrepreneur Khaziev Anas Fatikhovich
+          (TIN: 501905834304, PSRNIE: 325774600419939), hereinafter referred to as the &quot;Operator&quot;, operating the website
           anagentica.ru (hereinafter — the &quot;Website&quot;).
         </p>
         <p>
@@ -100,10 +100,10 @@ export default function PrivacyPage() {
 
         <h2>10. Contact Information</h2>
         <p>
-          Individual Entrepreneur Khaziev Anas Rasulovich<br />
-          TIN: 773400990807<br />
-          PSRNIE: 325774600346498<br />
-          Email: <a href="mailto:info@anagentica.ru">info@anagentica.ru</a><br />
+          Individual Entrepreneur Khaziev Anas Fatikhovich<br />
+          TIN: 501905834304<br />
+          PSRNIE: 325774600419939<br />
+          Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
           Telegram: <a href="https://t.me/anagentica" target="_blank" rel="noopener noreferrer">@anagentica</a>
         </p>
       </LegalLayout>
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
       <h2>1. Общие положения</h2>
       <p>
         Настоящая Политика конфиденциальности определяет порядок обработки персональных данных
-        Индивидуальным предпринимателем Хазиевым Анасом Расуловичем (ИНН: 773400990807, ОГРНИП: 325774600346498),
+        Индивидуальным предпринимателем Хазиевым Анасом Фатиховичем (ИНН: 501905834304, ОГРНИП: 325774600419939),
         далее — «Оператор», осуществляющим деятельность через сайт anagentica.ru (далее — «Сайт»).
       </p>
       <p>
@@ -204,10 +204,10 @@ export default function PrivacyPage() {
 
       <h2>10. Контактная информация</h2>
       <p>
-        ИП Хазиев Анас Расулович<br />
-        ИНН: 773400990807<br />
-        ОГРНИП: 325774600346498<br />
-        Email: <a href="mailto:info@anagentica.ru">info@anagentica.ru</a><br />
+        ИП Хазиев Анас Фатихович<br />
+        ИНН: 501905834304<br />
+        ОГРНИП: 325774600419939<br />
+        Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
         Telegram: <a href="https://t.me/anagentica" target="_blank" rel="noopener noreferrer">@anagentica</a>
       </p>
     </LegalLayout>
