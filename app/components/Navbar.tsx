@@ -2,19 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-
-const navLinks = [
-  { label: 'Услуги', href: '#services' },
-  { label: 'Как работаем', href: '#approach' },
-  { label: 'Кейсы', href: '#cases' },
-  { label: 'О нас', href: '#about' },
-];
+import { useLocale } from '../i18n/LocaleContext';
+import { translations } from '../i18n/translations';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { locale, setLocale, t } = useLocale();
+
+  const navLinks = [
+    { label: t(translations.nav.services), href: '#services' },
+    { label: t(translations.nav.approach), href: '#approach' },
+    { label: t(translations.nav.cases), href: '#cases' },
+    { label: t(translations.nav.about), href: '#about' },
+  ];
 
   useEffect(() => {
     setMounted(true);
@@ -52,12 +55,21 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Locale toggle */}
+            <button
+              onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')}
+              className="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors uppercase tracking-wide"
+              aria-label="Switch language"
+            >
+              {locale === 'ru' ? 'EN' : 'RU'}
+            </button>
+
             {/* Theme toggle */}
             {mounted && (
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
-                aria-label="Переключить тему"
+                aria-label={t(translations.nav.themeToggle)}
               >
                 {theme === 'dark' ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -77,14 +89,14 @@ export default function Navbar() {
               href="#cta"
               className="hidden md:inline-flex px-5 py-2.5 text-sm font-medium text-white bg-accent dark:bg-accent-dark rounded-lg hover:opacity-90 transition-opacity"
             >
-              Получить разбор
+              {t(translations.nav.cta)}
             </a>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden p-2 text-gray-600 dark:text-gray-400"
-              aria-label="Меню"
+              aria-label={t(translations.nav.menu)}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 {mobileOpen ? (
@@ -124,7 +136,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="block w-full text-center px-5 py-2.5 text-sm font-medium text-white bg-accent dark:bg-accent-dark rounded-lg"
             >
-              Получить разбор
+              {t(translations.nav.cta)}
             </a>
           </div>
         </div>

@@ -1,14 +1,20 @@
 'use client';
 
-const footerLinks = [
-  { label: 'Услуги', href: '#services' },
-  { label: 'Как работаем', href: '#approach' },
-  { label: 'Кейсы', href: '#cases' },
-  { label: 'О нас', href: '#about' },
-  { label: 'Контакты', href: '#cta' },
-];
+import { useLocale } from '../i18n/LocaleContext';
+import { translations } from '../i18n/translations';
 
 export default function Footer() {
+  const { t } = useLocale();
+  const s = translations.footer;
+
+  const footerLinks = [
+    { label: t(s.links.services), href: '#services' },
+    { label: t(s.links.approach), href: '#approach' },
+    { label: t(s.links.cases), href: '#cases' },
+    { label: t(s.links.about), href: '#about' },
+    { label: t(s.links.contact), href: '#cta' },
+  ];
+
   return (
     <footer className="border-t border-gray-200 dark:border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +24,7 @@ export default function Footer() {
               Anagentica
             </div>
             <div className="text-sm text-gray-500 dark:text-gray-400">
-              Меньше рутины. Больше бизнеса.
+              {t(s.tagline)}
             </div>
           </div>
 
