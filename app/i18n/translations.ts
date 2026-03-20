@@ -23,7 +23,7 @@ export const translations = {
     ctaPrimary: { ru: 'Получить бесплатный разбор', en: 'Get a free audit' },
     ctaSecondary: { ru: 'Смотреть примеры решений', en: 'See case studies' },
     stats: [
-      { value: { ru: '27 лет', en: '27 years' }, label: { ru: 'опыт в ИТ', en: 'IT experience' } },
+      { value: { ru: '15+ лет', en: '15+ years' }, label: { ru: 'опыт в ИТ', en: 'IT experience' } },
       { value: { ru: '−60%', en: '−60%' }, label: { ru: 'рутинных операций', en: 'routine operations' } },
       { value: { ru: '2 нед', en: '2 weeks' }, label: { ru: 'до первого результата', en: 'to first results' } },
     ],
@@ -240,7 +240,7 @@ export const translations = {
       en: '15+ years in IT. Recent years — at the intersection of business and technology in major international companies.',
     },
     stats: [
-      { value: { ru: '27 лет', en: '27 years' }, label: { ru: 'опыт', en: 'experience' } },
+      { value: { ru: '15+ лет', en: '15+ years' }, label: { ru: 'опыт', en: 'experience' } },
       { value: { ru: '100+ млн ₽', en: '$1M+' }, label: { ru: 'подтверждённая экономия', en: 'verified savings' } },
       { value: '+46%', label: { ru: 'рост успешности проектов', en: 'project success growth' } },
       { value: 'NPS 90%+', label: { ru: 'после внедрения AI', en: 'after AI implementation' } },
