@@ -58,7 +58,7 @@ export default function Footer() {
             <div>
               {ci.email} &middot;{' '}
               <a
-                href="https://t.me/anagentica"
+                href="https://t.me/velocity2025"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent dark:hover:text-accent-dark transition-colors"

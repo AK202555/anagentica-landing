@@ -122,7 +122,7 @@ export default function CTA() {
             <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
               {t(s.telegram)}{' '}
               <a
-                href="https://t.me/anagentica"
+                href="https://t.me/velocity2025"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent dark:text-accent-dark hover:underline"

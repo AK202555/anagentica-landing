@@ -345,7 +345,7 @@ export const translations = {
       inn: { ru: 'ИНН: 501905834304', en: 'TIN: 501905834304' },
       ogrnip: { ru: 'ОГРНИП: 325774600419939', en: 'PSRNIE: 325774600419939' },
       email: 'tornad2020@yandex.ru',
-      telegram: '@anagentica',
+      telegram: '@velocity2025',
     },
   },
 

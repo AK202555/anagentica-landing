@@ -88,7 +88,7 @@ export default function PrivacyPage() {
           <li>File a complaint with Roskomnadzor (Federal Service for Supervision of Communications)</li>
         </ul>
         <p>
-          To exercise these rights, contact: <a href="mailto:info@anagentica.ru">info@anagentica.ru</a>
+          To exercise these rights, contact: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a>
         </p>
 
         <h2>9. Changes to This Policy</h2>
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
           TIN: 501905834304<br />
           PSRNIE: 325774600419939<br />
           Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
-          Telegram: <a href="https://t.me/anagentica" target="_blank" rel="noopener noreferrer">@anagentica</a>
+          Telegram: <a href="https://t.me/velocity2025" target="_blank" rel="noopener noreferrer">@velocity2025</a>
         </p>
       </LegalLayout>
     );
@@ -192,7 +192,7 @@ export default function PrivacyPage() {
         <li>Подать жалобу в Роскомнадзор</li>
       </ul>
       <p>
-        Для реализации указанных прав обращайтесь: <a href="mailto:info@anagentica.ru">info@anagentica.ru</a>
+        Для реализации указанных прав обращайтесь: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a>
       </p>
 
       <h2>9. Изменения в Политике</h2>
@@ -208,7 +208,7 @@ export default function PrivacyPage() {
         ИНН: 501905834304<br />
         ОГРНИП: 325774600419939<br />
         Email: <a href="mailto:tornad2020@yandex.ru">tornad2020@yandex.ru</a><br />
-        Telegram: <a href="https://t.me/anagentica" target="_blank" rel="noopener noreferrer">@anagentica</a>
+        Telegram: <a href="https://t.me/velocity2025" target="_blank" rel="noopener noreferrer">@velocity2025</a>
       </p>
     </LegalLayout>
   );
