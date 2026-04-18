@@ -24,7 +24,13 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [pulse, setPulse] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => setPulse(true), 8000);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     if (open && messages.length === 0) {
@@ -61,9 +67,9 @@ export default function ChatWidget() {
     <>
       {/* Floating button */}
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => { setOpen(o => !o); setPulse(false); }}
         aria-label="Открыть чат"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent dark:bg-accent-dark text-white shadow-lg flex items-center justify-center hover:opacity-90 transition-opacity"
+        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent dark:bg-accent-dark text-white shadow-lg flex items-center justify-center hover:opacity-90 transition-opacity ${pulse && !open ? 'animate-bounce' : ''}`}
       >
         {open ? (
           <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
