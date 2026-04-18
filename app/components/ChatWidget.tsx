@@ -33,11 +33,9 @@ export default function ChatWidget() {
   }, []);
 
   useEffect(() => {
-    if (!open || messages.length > 0) return;
-    fetch(`${API_URL}/api/session/${getSessionId()}/init`)
-      .then(r => r.json())
-      .then(data => setMessages([{ role: 'bot', text: data.greeting }]))
-      .catch(() => setMessages([{ role: 'bot', text: 'Привет! Расскажите, какой процесс вы хотите автоматизировать?' }]));
+    if (open && messages.length === 0) {
+      setMessages([{ role: 'bot', text: 'Привет! Расскажите, какой процесс вы хотите автоматизировать?' }]);
+    }
   }, [open]);
 
   useEffect(() => {
