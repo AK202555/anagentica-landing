@@ -11,6 +11,7 @@ import AboutFounder from './components/AboutFounder';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
+import ChatWidget from './components/ChatWidget';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <ChatWidget />
       <CookieConsent />
     </>
   );
