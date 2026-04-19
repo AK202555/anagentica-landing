@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import FadeInUp from './animations/FadeInUp';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
@@ -10,17 +11,32 @@ export default function CTA() {
   const [consent, setConsent] = useState(false);
   const [consentError, setConsentError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const { t } = useLocale();
   const s = translations.cta;
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!consent) {
       setConsentError(true);
       return;
     }
-    console.log('Form submitted:', form);
-    setSubmitted(true);
+    setLoading(true);
+    setSendError(false);
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        { name: form.name, contact: form.contact, task: form.task },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setSubmitted(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -108,11 +124,17 @@ export default function CTA() {
                     <p className="text-xs text-red-500">{t(s.consentRequired)}</p>
                   )}
                 </div>
+                {sendError && (
+                  <p className="text-sm text-red-500 text-center">
+                    Не удалось отправить заявку. Попробуйте ещё раз или напишите напрямую в Telegram.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 text-base font-medium text-white bg-accent dark:bg-accent-dark rounded-lg hover:opacity-90 transition-opacity"
+                  disabled={loading}
+                  className="w-full px-8 py-4 text-base font-medium text-white bg-accent dark:bg-accent-dark rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {t(s.submit)}
+                  {loading ? 'Отправляем...' : t(s.submit)}
                 </button>
               </form>
             )}
