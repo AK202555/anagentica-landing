@@ -10,6 +10,7 @@ export default function CTA() {
   const [form, setForm] = useState({ name: '', contact: '', task: '' });
   const [consent, setConsent] = useState(false);
   const [consentError, setConsentError] = useState(false);
+  const [contactError, setContactError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sendError, setSendError] = useState(false);
@@ -20,6 +21,14 @@ export default function CTA() {
     e.preventDefault();
     if (!consent) {
       setConsentError(true);
+      return;
+    }
+    const val = form.contact.trim();
+    const isPhone = /^\+?[\d\s\-().]{7,15}$/.test(val);
+    const isTelegram = /^@[\w]{3,}$/.test(val);
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if (!isPhone && !isTelegram && !isEmail) {
+      setContactError(true);
       return;
     }
     setLoading(true);
@@ -84,10 +93,13 @@ export default function CTA() {
                     type="text"
                     required
                     value={form.contact}
-                    onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/15 bg-white dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark transition-shadow"
+                    onChange={(e) => { setForm({ ...form, contact: e.target.value }); setContactError(false); }}
+                    className={`w-full px-4 py-3 rounded-lg border bg-white dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark transition-shadow ${contactError ? 'border-red-500' : 'border-gray-300 dark:border-white/15'}`}
                     placeholder={t(s.contactPlaceholder)}
                   />
+                  {contactError && (
+                    <p className="text-xs text-red-500 mt-1">{t(s.contactError)}</p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="task" className="block text-sm font-medium mb-1.5">
