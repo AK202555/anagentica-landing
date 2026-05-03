@@ -37,9 +37,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="text-xl font-bold">
-            <span className="text-accent dark:text-accent-dark border-b-2 border-accent dark:border-accent-dark pb-0.5">An</span>
-            <span className="text-gray-900 dark:text-white">agentica</span>
+          <a href="#" className="flex items-center">
+            <img src="/assets/logo-dark.svg" alt="Anagentica" className="hidden dark:block h-7" />
+            <img src="/assets/logo-light.svg" alt="Anagentica" className="dark:hidden block h-7" />
           </a>
 
           {/* Desktop nav */}

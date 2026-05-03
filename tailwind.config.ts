@@ -7,16 +7,16 @@ const config: Config = {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#534AB7',
-          dark: '#7F77DD',
+          DEFAULT: '#0071e3',
+          dark: '#0071e3',
         },
         surface: {
-          light: '#FFFFFF',
-          dark: '#0A0A0A',
+          light: '#f5f5f7',
+          dark: '#000000',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"DM Sans"', '-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'sans-serif'],
       },
     },
   },

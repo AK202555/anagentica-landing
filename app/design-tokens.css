@@ -1,0 +1,299 @@
+/* ============================================================
+   ANAGENTICA DESIGN SYSTEM — colors_and_type.css
+   SF Pro system stack + Plus Jakarta Sans fallback
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ── Brand Fonts (local) ─────────────────────────────────── */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DMSans-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DMSans-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* brand-font: DM Sans — loaded from local fonts/ */
+/* brand-font: Plus Jakarta Sans — loaded via Google Fonts CDN */
+
+/* ── Base Font Faces ─────────────────────────────────────── */
+:root {
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, "SF Pro Text",    "Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ── Colors: Primary ──────────────────────────────────── */
+  --color-black:          #000000;
+  --color-light-bg:       #f5f5f7;
+  --color-near-black:     #1d1d1f;
+  --color-white:          #ffffff;
+
+  /* ── Colors: Interactive / Accent ────────────────────── */
+  --color-blue:           #0071e3;   /* Primary CTA, focus rings */
+  --color-blue-link:      #0066cc;   /* Inline links, light bg */
+  --color-blue-dark-bg:   #2997ff;   /* Links on dark backgrounds */
+
+  /* ── Colors: Text ────────────────────────────────────── */
+  --color-text-primary-dark:   #ffffff;              /* Text on dark bg */
+  --color-text-primary-light:  #1d1d1f;              /* Text on light bg */
+  --color-text-secondary:      rgba(0, 0, 0, 0.80);  /* Body text, nav items */
+  --color-text-tertiary:       rgba(0, 0, 0, 0.48);  /* Disabled, captions */
+  --color-text-white-secondary: rgba(255,255,255,0.72);
+
+  /* ── Colors: Surface (light) ─────────────────────────── */
+  --color-surface-light:      #f5f5f7;
+  --color-surface-white:      #ffffff;
+  --color-surface-btn-light:  #fafafc;
+  --color-surface-btn-active: #ededf2;
+
+  /* ── Colors: Surface (dark) ──────────────────────────── */
+  --color-surface-dark-1: #272729;
+  --color-surface-dark-2: #262628;
+  --color-surface-dark-3: #28282a;
+  --color-surface-dark-4: #2a2a2d;
+  --color-surface-dark-5: #242426;
+
+  /* ── Colors: Overlay ─────────────────────────────────── */
+  --color-overlay:          rgba(210, 210, 215, 0.64);
+  --color-overlay-white:    rgba(255, 255, 255, 0.32);
+  --color-nav-bg:           rgba(0, 0, 0, 0.80);
+  --color-btn-border-light: rgba(0, 0, 0, 0.04);
+
+  /* ── Shadows ─────────────────────────────────────────── */
+  --shadow-card:   3px 5px 30px 0px rgba(0, 0, 0, 0.22);
+  --shadow-none:   none;
+
+  /* ── Focus ───────────────────────────────────────────── */
+  --focus-ring: 2px solid #0071e3;
+
+  /* ── Border Radius ───────────────────────────────────── */
+  --radius-micro:    5px;
+  --radius-standard: 8px;
+  --radius-comfort:  11px;
+  --radius-large:    12px;
+  --radius-pill:     980px;
+  --radius-circle:   50%;
+
+  /* ── Spacing Scale ───────────────────────────────────── */
+  --space-1:   2px;
+  --space-2:   4px;
+  --space-3:   5px;
+  --space-4:   6px;
+  --space-5:   7px;
+  --space-6:   8px;
+  --space-7:   9px;
+  --space-8:   10px;
+  --space-9:   11px;
+  --space-10:  14px;
+  --space-11:  15px;
+  --space-12:  17px;
+  --space-13:  20px;
+  --space-14:  24px;
+  --space-15:  32px;
+  --space-16:  40px;
+  --space-17:  48px;
+  --space-18:  64px;
+  --space-19:  80px;
+  --space-20:  120px;
+
+  /* ── Transitions ─────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast:   0.15s;
+  --duration-normal: 0.30s;
+  --duration-scroll: 0.60s;
+}
+
+/* ============================================================
+   SEMANTIC TYPE TOKENS
+   ============================================================ */
+
+/* Display / Hero headline — 56px, weight 600, tight */
+.t-hero,
+[data-type="hero"] {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem); /* 56px */
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.28px;
+}
+
+/* Section heading — 40px, weight 600 */
+.t-section-heading,
+[data-type="section-heading"] {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem); /* 40px */
+  font-weight: 600;
+  line-height: 1.10;
+  letter-spacing: normal;
+}
+
+/* Tile heading — 28px, weight 400 */
+.t-tile-heading,
+[data-type="tile-heading"] {
+  font-family: var(--font-display);
+  font-size: 1.75rem; /* 28px */
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.196px;
+}
+
+/* Card title — 21px, weight 700 */
+.t-card-title,
+[data-type="card-title"] {
+  font-family: var(--font-display);
+  font-size: 1.3125rem; /* 21px */
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: 0.231px;
+}
+
+/* Sub-heading — 21px, weight 400 */
+.t-subheading,
+[data-type="subheading"] {
+  font-family: var(--font-display);
+  font-size: 1.3125rem; /* 21px */
+  font-weight: 400;
+  line-height: 1.19;
+  letter-spacing: 0.231px;
+}
+
+/* Nav heading — 34px, weight 600 */
+.t-nav-heading,
+[data-type="nav-heading"] {
+  font-family: var(--font-body);
+  font-size: 2.125rem; /* 34px */
+  font-weight: 600;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+}
+
+/* Sub-nav — 24px, weight 300 */
+.t-subnav,
+[data-type="subnav"] {
+  font-family: var(--font-body);
+  font-size: 1.5rem; /* 24px */
+  font-weight: 300;
+  line-height: 1.50;
+  letter-spacing: normal;
+}
+
+/* Body — 17px, weight 400 */
+.t-body,
+[data-type="body"],
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+}
+
+/* Body Emphasis — 17px, weight 600 */
+.t-body-em,
+[data-type="body-em"] {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.374px;
+}
+
+/* Button large — 18px, weight 300 */
+.t-btn-large,
+[data-type="btn-large"] {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.00;
+  letter-spacing: normal;
+}
+
+/* Button — 17px, weight 400 */
+.t-btn,
+[data-type="btn"] {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 2.41;
+  letter-spacing: normal;
+}
+
+/* Link / Learn more — 14px, weight 400 */
+.t-link,
+[data-type="link"] {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: -0.224px;
+}
+
+/* Caption — 14px, weight 400 */
+.t-caption,
+[data-type="caption"] {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+}
+
+/* Caption Bold — 14px, weight 600 */
+.t-caption-bold,
+[data-type="caption-bold"] {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+}
+
+/* Micro — 12px, weight 400 */
+.t-micro,
+[data-type="micro"] {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.12px;
+}
+
+/* Micro Bold — 12px, weight 600 */
+.t-micro-bold,
+[data-type="micro-bold"] {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: -0.12px;
+}
+
+/* Nano — 10px, weight 400 */
+.t-nano,
+[data-type="nano"] {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.08px;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   ============================================================ */
+
+h1 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.5rem); font-weight: 600; line-height: 1.07; letter-spacing: -0.28px; }
+h2 { font-family: var(--font-display); font-size: clamp(1.75rem,4vw,2.5rem); font-weight: 600; line-height: 1.10; }
+h3 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 400; line-height: 1.14; letter-spacing: 0.196px; }
+h4 { font-family: var(--font-display); font-size: 1.3125rem; font-weight: 700; line-height: 1.19; letter-spacing: 0.231px; }
+h5 { font-family: var(--font-display); font-size: 1.3125rem; font-weight: 400; line-height: 1.19; letter-spacing: 0.231px; }
+p  { font-family: var(--font-body); font-size: 1.0625rem; font-weight: 400; line-height: 1.47; letter-spacing: -0.374px; }
+a  { color: var(--color-blue-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+small { font-family: var(--font-body); font-size: 0.875rem; line-height: 1.29; letter-spacing: -0.224px; }

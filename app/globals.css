@@ -1,10 +1,54 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Anagentica Design System — CSS Variables */
+:root {
+  --color-black:          #000000;
+  --color-light-bg:       #f5f5f7;
+  --color-near-black:     #1d1d1f;
+  --color-white:          #ffffff;
+  --color-blue:           #0071e3;
+  --color-blue-link:      #0066cc;
+  --color-blue-dark-bg:   #2997ff;
+  --color-text-primary-dark:    #ffffff;
+  --color-text-primary-light:   #1d1d1f;
+  --color-text-secondary:       rgba(0, 0, 0, 0.80);
+  --color-text-tertiary:        rgba(0, 0, 0, 0.48);
+  --color-text-white-secondary: rgba(255, 255, 255, 0.72);
+  --color-surface-light:    #f5f5f7;
+  --color-surface-white:    #ffffff;
+  --shadow-card:   3px 5px 30px 0px rgba(0, 0, 0, 0.22);
+  --focus-ring:    2px solid #0071e3;
+  --radius-micro:    5px;
+  --radius-standard: 8px;
+  --radius-comfort:  11px;
+  --radius-large:    12px;
+  --radius-pill:     980px;
+  --ease-out:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast:   0.15s;
+  --duration-normal: 0.30s;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-surface-light text-gray-900 dark:bg-surface-dark dark:text-gray-100;
+    @apply bg-surface-light text-[#1d1d1f] dark:bg-surface-dark dark:text-white;
   }
 }
 

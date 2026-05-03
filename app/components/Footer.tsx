@@ -28,9 +28,9 @@ export default function Footer() {
         {/* Main footer row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
           <div>
-            <div className="text-lg font-bold mb-1">
-              <span className="text-accent dark:text-accent-dark border-b-2 border-accent dark:border-accent-dark pb-0.5">An</span>
-              <span className="text-gray-900 dark:text-white">agentica</span>
+            <div className="mb-1">
+              <img src="/assets/logo-dark.svg" alt="Anagentica" className="hidden dark:block h-5" />
+              <img src="/assets/logo-light.svg" alt="Anagentica" className="dark:hidden block h-5" />
             </div>
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {t(s.tagline)}
