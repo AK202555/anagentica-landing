@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 const API_URL = process.env.NEXT_PUBLIC_CHAT_API_URL ?? 'http://localhost:8000';
+const SESSION_ID_KEY = 'anagentica_session_id';
+const REOPEN_KEY = 'anagentica_reopen';
 
 function getSessionId(): string {
-  const key = 'anagentica_session_id';
-  let id = localStorage.getItem(key);
+  let id = localStorage.getItem(SESSION_ID_KEY);
   if (!id) {
     id = crypto.randomUUID();
-    localStorage.setItem(key, id);
+    localStorage.setItem(SESSION_ID_KEY, id);
   }
   return id;
 }
@@ -28,6 +29,9 @@ export default function ChatWidget() {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (localStorage.getItem(SESSION_ID_KEY)) {
+      sessionStorage.setItem(REOPEN_KEY, '1');
+    }
     const t = setTimeout(() => setPulse(true), 8000);
     return () => clearTimeout(t);
   }, []);
@@ -52,10 +56,15 @@ export default function ChatWidget() {
       const res = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: getSessionId(), message: text }),
+        body: JSON.stringify({
+          session_id: getSessionId(),
+          message: text,
+          is_widget_reopen: sessionStorage.getItem(REOPEN_KEY) === '1',
+        }),
       });
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'bot', text: data.response }]);
+      sessionStorage.removeItem(REOPEN_KEY);
     } catch {
       setMessages(prev => [...prev, { role: 'bot', text: 'Что-то пошло не так. Попробуйте ещё раз.' }]);
     } finally {
