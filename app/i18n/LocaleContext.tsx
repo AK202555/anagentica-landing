@@ -27,11 +27,9 @@ function setCookie(name: string, value: string, days: number = 365) {
 }
 
 function detectLocale(): Locale {
-  // 1. Check cookie
   const saved = getCookie('locale');
   if (saved === 'ru' || saved === 'en') return saved;
 
-  // 2. Check browser language
   if (typeof navigator !== 'undefined') {
     const lang = navigator.language || (navigator as { userLanguage?: string }).userLanguage || '';
     if (lang.startsWith('ru') || lang.startsWith('uk') || lang.startsWith('be') || lang.startsWith('kk')) {
@@ -44,20 +42,15 @@ function detectLocale(): Locale {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('ru');
-  const [mounted, setMounted] = useState(false);
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window === 'undefined') return 'ru';
+    return detectLocale();
+  });
 
   useEffect(() => {
-    setLocaleState(detectLocale());
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      setCookie('locale', locale);
-      document.documentElement.lang = locale;
-    }
-  }, [locale, mounted]);
+    setCookie('locale', locale);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
