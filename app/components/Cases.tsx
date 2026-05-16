@@ -23,7 +23,7 @@ export default function Cases() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {s.items.map((c, i) => (
             <FadeInUp key={i} delay={i * 0.1}>
-              <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 flex flex-col">
+              <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-accent/40 dark:hover:border-accent-dark/40">
                 <span className="inline-block self-start text-xs font-medium px-3 py-1 rounded-full bg-accent/10 dark:bg-accent-dark/20 text-accent dark:text-accent-dark mb-4">
                   {t(c.badge)}
                 </span>

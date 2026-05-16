@@ -14,7 +14,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24 w-full">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl hero-enter">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
             {t(s.title1)}{' '}
             <span className="text-accent dark:text-accent-dark">{t(s.title2)}</span>
