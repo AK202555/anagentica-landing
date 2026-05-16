@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
 
@@ -17,12 +16,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24 w-full">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="max-w-3xl"
-        >
+        <div className="scale-in max-w-3xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
             {t(s.title1)}{' '}
             <span className="text-accent dark:text-accent-dark">{t(s.title2)}</span>
@@ -46,15 +40,10 @@ export default function Hero() {
               {t(s.ctaSecondary)}
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl"
-        >
+        <div className="slide-up grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl" style={{ animationDelay: '0.3s' }}>
           {s.stats.map((stat, i) => (
             <div
               key={i}
@@ -68,7 +57,7 @@ export default function Hero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

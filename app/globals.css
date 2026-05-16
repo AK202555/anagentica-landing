@@ -1,3 +1,27 @@
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.scale-in {
+  animation: scaleIn 0.7s ease-out both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slide-up {
+  animation: slideUp 0.6s ease-out both;
+}
+
 @font-face {
   font-family: 'DM Sans';
   src: url('/fonts/DMSans-VariableFont_opsz_wght.woff2') format('woff2'),

@@ -1,7 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { useEffect, useRef, ReactNode } from 'react';
 
 interface FadeInUpProps {
   children: ReactNode;
@@ -10,15 +9,28 @@ interface FadeInUpProps {
 }
 
 export default function FadeInUp({ children, delay = 0, className }: FadeInUpProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.animationDelay = `${delay}s`;
+          el.classList.add('fade-in-up');
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: '-50px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay, ease: 'easeOut' }}
-      className={className}
-    >
+    <div ref={ref} style={{ opacity: 0 }} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
