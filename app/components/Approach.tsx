@@ -23,7 +23,7 @@ export default function Approach() {
         <div className="max-w-2xl mx-auto space-y-0">
           {s.steps.map((step, i) => (
             <FadeInUp key={step.num} delay={i * 0.15}>
-              <div className="relative pl-16 pb-12 last:pb-0">
+              <div className={`relative pl-16 ${i < s.steps.length - 1 ? 'pb-12' : ''}`}>
                 {/* Connecting line */}
                 {i < s.steps.length - 1 && (
                   <div className="absolute left-[23px] top-12 bottom-0 w-px bg-gray-200 dark:bg-white/10" />
