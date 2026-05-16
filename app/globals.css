@@ -28,7 +28,7 @@
        url('/fonts/DMSans-VariableFont_opsz_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -37,7 +37,7 @@
        url('/fonts/DMSans-Italic-VariableFont_opsz_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 
 /* Anagentica Design System — CSS Variables */
