@@ -19,7 +19,7 @@ export default function USP() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {s.items.map((u, i) => (
-            <FadeInUp key={i} delay={i * 0.1}>
+            <FadeInUp key={i} delay={i * 0.05}>
               <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-accent/40 dark:hover:border-accent-dark/40">
                 <h3 className="text-lg font-semibold mb-2">{t(u.title)}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{t(u.desc)}</p>

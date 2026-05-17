@@ -61,7 +61,7 @@ export default function CTA() {
             </p>
           </FadeInUp>
 
-          <FadeInUp delay={0.1}>
+          <FadeInUp delay={0.05}>
             {submitted ? (
               <div className="p-8 rounded-xl border border-accent/30 dark:border-accent-dark/30 bg-accent/5 dark:bg-accent-dark/10">
                 <p className="text-lg font-semibold text-accent dark:text-accent-dark">
@@ -152,7 +152,7 @@ export default function CTA() {
             )}
           </FadeInUp>
 
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.1}>
             <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
               {t(s.telegram)}{' '}
               <a

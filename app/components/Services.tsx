@@ -19,7 +19,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {s.items.map((svc, i) => (
-            <FadeInUp key={i} delay={i * 0.1}>
+            <FadeInUp key={i} delay={i * 0.05}>
               <div className="h-full p-6 md:p-8 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-accent/40 dark:hover:border-accent-dark/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-md flex flex-col">
                 <h3 className="text-xl font-semibold mb-2">{t(svc.title)}</h3>
                 <p className="text-gray-500 dark:text-gray-400 mb-5">{t(svc.subtitle)}</p>

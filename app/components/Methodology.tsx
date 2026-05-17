@@ -47,7 +47,7 @@ export default function Methodology() {
           {s.steps.map((step, i) => {
             const time = t(step.time);
             return (
-              <FadeInUp key={i} delay={i * 0.1}>
+              <FadeInUp key={i} delay={i * 0.05}>
                 <div className="relative pl-14 pb-8 last:pb-0">
                   {i < s.steps.length - 1 && (
                     <div className="absolute left-[19px] top-10 bottom-0 w-px bg-gray-200 dark:bg-white/10" />

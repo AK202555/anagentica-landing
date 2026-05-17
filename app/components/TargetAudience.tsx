@@ -19,7 +19,7 @@ export default function TargetAudience() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {s.items.map((a, i) => (
-            <FadeInUp key={i} delay={i * 0.1}>
+            <FadeInUp key={i} delay={i * 0.05}>
               <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-accent/40 dark:hover:border-accent-dark/40">
                 <h3 className="text-lg font-semibold mb-3">{t(a.title)}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{t(a.desc)}</p>
@@ -28,7 +28,7 @@ export default function TargetAudience() {
           ))}
         </div>
 
-        <FadeInUp delay={0.3}>
+        <FadeInUp delay={0.15}>
           <p className="text-center mt-10 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
             {t(s.footer)}
           </p>
