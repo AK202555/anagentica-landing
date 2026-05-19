@@ -31,7 +31,7 @@ export default function ChatWidget() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [pulse, setPulse] = useState(false);
-  const [entryButtons, setEntryButtons] = useState<EntryButton[][] | null>(null);
+  const [activeButtons, setActiveButtons] = useState<EntryButton[][] | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function ChatWidget() {
       .then(r => r.json())
       .then(data => {
         setMessages([{ role: 'bot', text: data.response }]);
-        if (data.buttons) setEntryButtons(data.buttons);
+        if (data.buttons) setActiveButtons(data.buttons);
       })
       .catch(() => setMessages([{ role: 'bot', text: 'Привет! Чем могу помочь?' }]))
       .finally(() => setLoading(false));
@@ -61,11 +61,12 @@ export default function ChatWidget() {
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, loading, entryButtons]);
+  }, [messages, loading, activeButtons]);
 
   const send = async (text: string) => {
     if (!text || loading) return;
     setMessages(prev => [...prev, { role: 'user', text }]);
+    setActiveButtons(null);
     setLoading(true);
     try {
       const res = await fetch(`${API_URL}/api/chat`, {
@@ -79,6 +80,7 @@ export default function ChatWidget() {
       });
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'bot', text: data.response }]);
+      setActiveButtons(data.buttons ?? null);
       sessionStorage.removeItem(REOPEN_KEY);
     } catch {
       setMessages(prev => [...prev, { role: 'bot', text: 'Что-то пошло не так. Попробуйте ещё раз.' }]);
@@ -95,7 +97,7 @@ export default function ChatWidget() {
   };
 
   const handleEntryButton = async (btn: EntryButton) => {
-    setEntryButtons(null);
+    setActiveButtons(null);
     setMessages(prev => [...prev, { role: 'user', text: btn.label }]);
     setLoading(true);
     try {
@@ -110,6 +112,7 @@ export default function ChatWidget() {
       });
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'bot', text: data.response }]);
+      setActiveButtons(data.buttons ?? null);
       sessionStorage.removeItem(REOPEN_KEY);
     } catch {
       setMessages(prev => [...prev, { role: 'bot', text: 'Что-то пошло не так. Попробуйте ещё раз.' }]);
@@ -162,10 +165,10 @@ export default function ChatWidget() {
               </div>
             ))}
 
-            {/* Entry buttons — shown once after init message */}
-            {entryButtons && !loading && (
+            {/* Active buttons — shown after any bot response that includes buttons */}
+            {activeButtons && !loading && (
               <div className="flex flex-col gap-2 mt-1">
-                {entryButtons.map((row, ri) => (
+                {activeButtons.map((row, ri) => (
                   <div key={ri} className="flex gap-2">
                     {row.map(btn => (
                       <button
