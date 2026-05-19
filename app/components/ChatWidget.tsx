@@ -20,12 +20,18 @@ interface Message {
   text: string;
 }
 
+interface EntryButton {
+  label: string;
+  value: string;
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [pulse, setPulse] = useState(false);
+  const [entryButtons, setEntryButtons] = useState<EntryButton[][] | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,19 +51,20 @@ export default function ChatWidget() {
       body: JSON.stringify({ session_id: getSessionId() }),
     })
       .then(r => r.json())
-      .then(data => setMessages([{ role: 'bot', text: data.response }]))
-      .catch(() => setMessages([{ role: 'bot', text: 'Привет! Расскажите, какой процесс вы хотите автоматизировать?' }]))
+      .then(data => {
+        setMessages([{ role: 'bot', text: data.response }]);
+        if (data.buttons) setEntryButtons(data.buttons);
+      })
+      .catch(() => setMessages([{ role: 'bot', text: 'Привет! Чем могу помочь?' }]))
       .finally(() => setLoading(false));
   }, [open]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, loading]);
+  }, [messages, loading, entryButtons]);
 
-  const send = async () => {
-    const text = input.trim();
+  const send = async (text: string) => {
     if (!text || loading) return;
-    setInput('');
     setMessages(prev => [...prev, { role: 'user', text }]);
     setLoading(true);
     try {
@@ -67,6 +74,37 @@ export default function ChatWidget() {
         body: JSON.stringify({
           session_id: getSessionId(),
           message: text,
+          is_widget_reopen: sessionStorage.getItem(REOPEN_KEY) === '1',
+        }),
+      });
+      const data = await res.json();
+      setMessages(prev => [...prev, { role: 'bot', text: data.response }]);
+      sessionStorage.removeItem(REOPEN_KEY);
+    } catch {
+      setMessages(prev => [...prev, { role: 'bot', text: 'Что-то пошло не так. Попробуйте ещё раз.' }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleInputSend = () => {
+    const text = input.trim();
+    if (!text) return;
+    setInput('');
+    send(text);
+  };
+
+  const handleEntryButton = async (btn: EntryButton) => {
+    setEntryButtons(null);
+    setMessages(prev => [...prev, { role: 'user', text: btn.label }]);
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_URL}/api/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          session_id: getSessionId(),
+          message: btn.value,
           is_widget_reopen: sessionStorage.getItem(REOPEN_KEY) === '1',
         }),
       });
@@ -123,6 +161,26 @@ export default function ChatWidget() {
                 </div>
               </div>
             ))}
+
+            {/* Entry buttons — shown once after init message */}
+            {entryButtons && !loading && (
+              <div className="flex flex-col gap-2 mt-1">
+                {entryButtons.map((row, ri) => (
+                  <div key={ri} className="flex gap-2">
+                    {row.map(btn => (
+                      <button
+                        key={btn.value}
+                        onClick={() => handleEntryButton(btn)}
+                        className="flex-1 text-xs px-3 py-2 rounded-xl border border-accent dark:border-accent-dark text-accent dark:text-accent-dark hover:bg-accent/10 dark:hover:bg-accent-dark/10 transition-colors text-left leading-snug"
+                      >
+                        {btn.label}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+
             {loading && (
               <div className="flex justify-start">
                 <div className="bg-gray-100 dark:bg-white/10 px-3 py-2 rounded-xl rounded-bl-none text-sm text-gray-400 dark:text-gray-500">
@@ -139,12 +197,12 @@ export default function ChatWidget() {
               type="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && send()}
+              onKeyDown={e => e.key === 'Enter' && handleInputSend()}
               placeholder="Напишите сообщение..."
               className="flex-1 text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-white/15 bg-white dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark"
             />
             <button
-              onClick={send}
+              onClick={handleInputSend}
               disabled={loading || !input.trim()}
               className="px-3 py-2 rounded-lg bg-accent dark:bg-accent-dark text-white text-sm font-medium hover:opacity-90 disabled:opacity-40 transition-opacity"
             >
