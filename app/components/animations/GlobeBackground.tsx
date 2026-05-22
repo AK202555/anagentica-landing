@@ -3,9 +3,8 @@
 import { useEffect, useRef } from 'react';
 
 const POINT_COUNT = 180;
-const CONNECTION_DIST = 0.44; // sphere radius = 1
+const CONNECTION_DIST = 0.44;
 
-// Fibonacci sphere — evenly distributed points on unit sphere
 function fibonacciSphere(n: number): [number, number, number][] {
   const pts: [number, number, number][] = [];
   const golden = Math.PI * (1 + Math.sqrt(5));
@@ -21,7 +20,6 @@ function fibonacciSphere(n: number): [number, number, number][] {
   return pts;
 }
 
-// Pre-calculate edge pairs once
 const BASE_POINTS = fibonacciSphere(POINT_COUNT);
 const EDGES: [number, number][] = [];
 for (let i = 0; i < POINT_COUNT; i++) {
@@ -35,7 +33,7 @@ for (let i = 0; i < POINT_COUNT; i++) {
   }
 }
 
-const TILT = 0.28; // slight X-axis tilt (radians)
+const TILT = 0.28;
 const cosTilt = Math.cos(TILT);
 const sinTilt = Math.sin(TILT);
 
@@ -51,6 +49,13 @@ export default function GlobeBackground() {
     let rot = 0;
     let animId: number;
 
+    const autoSpeed = 0.0025;
+    let velX = autoSpeed;
+
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastDeltaX = 0;
+
     const resize = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
@@ -58,34 +63,62 @@ export default function GlobeBackground() {
     resize();
     window.addEventListener('resize', resize);
 
+    const onMouseDown = (e: MouseEvent) => {
+      isDragging = true;
+      lastMouseX = e.clientX;
+      lastDeltaX = 0;
+      canvas.style.cursor = 'grabbing';
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      const dx = e.clientX - lastMouseX;
+      lastDeltaX = dx;
+      rot += dx * 0.005;
+      lastMouseX = e.clientX;
+    };
+
+    const onMouseUp = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      canvas.style.cursor = 'grab';
+      velX = lastDeltaX * 0.005;
+    };
+
+    canvas.style.pointerEvents = 'auto';
+    canvas.style.cursor = 'grab';
+    canvas.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (!isDragging) {
+        velX += (autoSpeed - velX) * 0.03;
+        rot += velX;
+      }
 
       const radius = Math.min(canvas.width * 0.42, canvas.height * 0.72);
       const cx = canvas.width * 0.5;
       const cy = canvas.height * 0.5;
 
-      rot += 0.0025;
       const cosR = Math.cos(rot);
       const sinR = Math.sin(rot);
 
-      // Project all points
       const proj = BASE_POINTS.map(([x, y, z]) => {
-        // Rotate Y axis
         const rx = x * cosR + z * sinR;
         const ry = y;
         const rz = -x * sinR + z * cosR;
-        // Tilt X axis
         const fy = ry * cosTilt - rz * sinTilt;
         const fz = ry * sinTilt + rz * cosTilt;
         return {
           px: cx + rx * radius,
           py: cy + fy * radius,
-          depth: (fz + 1) / 2, // 0 = back, 1 = front
+          depth: (fz + 1) / 2,
         };
       });
 
-      // Draw edges
       for (const [a, b] of EDGES) {
         const pa = proj[a], pb = proj[b];
         const minDepth = Math.min(pa.depth, pb.depth);
@@ -99,7 +132,6 @@ export default function GlobeBackground() {
         ctx.stroke();
       }
 
-      // Draw nodes (front nodes brighter and bigger)
       for (const p of proj) {
         const r = 0.7 + p.depth * 1.6;
         const opacity = 0.12 + p.depth * 0.75;
@@ -117,13 +149,16 @@ export default function GlobeBackground() {
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
+      canvas.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 w-full h-full"
+      className="absolute inset-0 w-full h-full"
       aria-hidden
     />
   );
