@@ -1,35 +1,53 @@
 'use client';
 
+import { Building2, Stethoscope, Rocket } from 'lucide-react';
 import FadeInUp from './animations/FadeInUp';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
+
+const icons = [Building2, Stethoscope, Rocket];
 
 export default function TargetAudience() {
   const { t } = useLocale();
   const s = translations.audience;
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
+      <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+            {t({ ru: 'Клиенты', en: 'Clients' })}
+          </p>
+          <h2
+            className="text-center font-bold leading-[1.1] mb-12"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+          >
             {t(s.title)}
           </h2>
         </FadeInUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {s.items.map((a, i) => (
-            <FadeInUp key={i} delay={i * 0.05}>
-              <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-accent/40 dark:hover:border-accent-dark/40">
-                <h3 className="text-lg font-semibold mb-3">{t(a.title)}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{t(a.desc)}</p>
-              </div>
-            </FadeInUp>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {s.items.map((a, i) => {
+            const Icon = icons[i];
+            return (
+              <FadeInUp key={i} delay={i * 0.1}>
+                <div className="h-full p-7 rounded-2xl border border-black/[0.06] bg-white text-center transition-all duration-[250ms] hover:-translate-y-[3px] hover:shadow-card">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
+                    style={{ background: 'rgba(0,113,227,0.08)' }}
+                  >
+                    <Icon size={26} color="#0071e3" strokeWidth={1.6} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3">{t(a.title)}</h3>
+                  <p className="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">{t(a.desc)}</p>
+                </div>
+              </FadeInUp>
+            );
+          })}
         </div>
 
-        <FadeInUp delay={0.15}>
-          <p className="text-center mt-10 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+        <FadeInUp delay={0.3}>
+          <p className="text-center mt-10 text-[rgba(0,0,0,0.5)] max-w-xl mx-auto text-[15px]">
             {t(s.footer)}
           </p>
         </FadeInUp>

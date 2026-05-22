@@ -1,5 +1,6 @@
 'use client';
 
+import { Send } from 'lucide-react';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
 
@@ -8,72 +9,99 @@ export default function Footer() {
   const s = translations.footer;
   const ci = s.companyInfo;
 
-  const navLinks = [
-    { label: t(s.links.services), href: '#services' },
-    { label: t(s.links.approach), href: '#approach' },
-    { label: t(s.links.cases), href: '#cases' },
-    { label: t(s.links.about), href: '#about' },
-    { label: t(s.links.contact), href: '#cta' },
-  ];
-
-  const legalLinks = [
-    { label: t(s.legal.privacy), href: '/privacy' },
-    { label: t(s.legal.terms), href: '/terms' },
-    { label: t(s.legal.offer), href: '/offer' },
-  ];
-
   return (
-    <footer className="border-t border-gray-200 dark:border-white/10 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main footer row */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
-          <div>
-            <div className="mb-1">
-              <img src="/assets/logo-dark.svg" alt="Anagentica" className="hidden dark:block h-5" />
-              <img src="/assets/logo-light.svg" alt="Anagentica" className="dark:hidden block h-5" />
-            </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+    <footer
+      className="bg-black text-white"
+      style={{ borderTop: '1px solid rgba(255,255,255,0.07)', padding: '60px 24px 40px' }}
+    >
+      <div className="max-w-[1000px] mx-auto">
+        {/* Main grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
+          {/* Brand col */}
+          <div className="col-span-2">
+            <a href="#" className="text-[22px] font-bold leading-none inline-block mb-3">
+              <span className="text-[#0071e3] underline decoration-[3px] underline-offset-2">An</span>
+              <span className="text-white">agentica</span>
+            </a>
+            <p className="text-sm text-white/45 mb-4 max-w-[200px] leading-relaxed">
               {t(s.tagline)}
+            </p>
+            <a
+              href="https://t.me/Anagentica_Asistant_bot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-[#2997ff] hover:text-white transition-colors"
+            >
+              <Send size={14} />
+              Telegram
+            </a>
+          </div>
+
+          {/* Services */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[1px] text-white/30 mb-4">
+              {t({ ru: 'Услуги', en: 'Services' })}
+            </p>
+            <div className="space-y-2.5">
+              {[
+                { ru: 'AI-аудит', en: 'AI audit', href: '#services' },
+                { ru: 'Автоматизация', en: 'Automation', href: '#services' },
+                { ru: 'AI-агенты', en: 'AI agents', href: '#services' },
+                { ru: 'Обучение', en: 'Training', href: '#services' },
+              ].map(link => (
+                <a key={link.ru} href={link.href} className="block text-sm text-white/50 hover:text-white transition-colors">
+                  {t(link)}
+                </a>
+              ))}
             </div>
           </div>
 
-          <nav className="flex flex-wrap gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-gray-500 dark:text-gray-400 hover:text-accent dark:hover:text-accent-dark transition-colors"
-              >
-                {link.label}
+          {/* Company */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[1px] text-white/30 mb-4">
+              {t({ ru: 'Компания', en: 'Company' })}
+            </p>
+            <div className="space-y-2.5">
+              {[
+                { label: t(s.links.about), href: '#about' },
+                { label: t(s.links.cases), href: '#cases' },
+                { label: t(s.links.approach), href: '#approach' },
+                { label: t(s.links.contact), href: '#cta' },
+              ].map(link => (
+                <a key={link.href} href={link.href} className="block text-sm text-white/50 hover:text-white transition-colors">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[1px] text-white/30 mb-4">
+              {t({ ru: 'Правовые', en: 'Legal' })}
+            </p>
+            <div className="space-y-2.5">
+              <a href="/privacy" className="block text-sm text-white/50 hover:text-white transition-colors">
+                {t(s.legal.privacy)}
               </a>
-            ))}
-          </nav>
+              <a href="/offer" className="block text-sm text-white/50 hover:text-white transition-colors">
+                {t(s.legal.offer)}
+              </a>
+              <a href="/terms" className="block text-sm text-white/50 hover:text-white transition-colors">
+                {t(s.legal.terms)}
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* Company details + legal links */}
-        <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          {/* Company info */}
-          <div className="text-xs text-gray-400 dark:text-gray-500 space-y-1">
-            <div className="font-medium text-gray-500 dark:text-gray-400">{ci.name}</div>
-            <div>{t(ci.inn)} &middot; {t(ci.ogrnip)}</div>
-          </div>
-
-          {/* Legal links */}
-          <nav className="flex flex-wrap gap-4">
-            {legalLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-xs text-gray-400 dark:text-gray-500 hover:text-accent dark:hover:text-accent-dark transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="text-xs text-gray-400 dark:text-gray-500">
-            &copy; 2025 Anagentica
-          </div>
+        {/* Bottom bar */}
+        <div
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
+        >
+          <p className="text-xs text-white/30">
+            © 2025 Anagentica
+          </p>
         </div>
       </div>
     </footer>

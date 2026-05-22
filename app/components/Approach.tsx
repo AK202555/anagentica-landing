@@ -9,34 +9,76 @@ export default function Approach() {
   const s = translations.approach;
 
   return (
-    <section id="approach" className="py-16 md:py-24 bg-gray-50 dark:bg-white/[0.02]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="approach" className="bg-black text-white" style={{ padding: '100px 24px' }}>
+      <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#2997ff] mb-3">
+            {t({ ru: 'Подход', en: 'Approach' })}
+          </p>
+          <h2
+            className="text-center font-bold leading-[1.1] mb-4"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+          >
             {t(s.title)}
           </h2>
-          <p className="text-center text-gray-500 dark:text-gray-400 mb-16 text-lg max-w-3xl mx-auto">
+          <p className="text-center text-white/55 mb-16 text-lg max-w-2xl mx-auto">
             {t(s.subtitle)}
           </p>
         </FadeInUp>
 
-        <div className="max-w-2xl mx-auto space-y-0">
-          {s.steps.map((step, i) => (
-            <FadeInUp key={step.num} delay={i * 0.05}>
-              <div className={`relative pl-16 ${i < s.steps.length - 1 ? 'pb-12' : ''}`}>
-                {/* Connecting line */}
-                {i < s.steps.length - 1 && (
-                  <div className="absolute left-[23px] top-12 bottom-0 w-px bg-gray-200 dark:bg-white/10" />
-                )}
-                {/* Number badge */}
-                <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-accent dark:bg-accent-dark flex items-center justify-center text-white text-sm font-bold">
-                  {step.num}
+        {/* Desktop: 3 merged columns */}
+        <div className="hidden md:flex gap-0.5">
+          {s.steps.map((step, i) => {
+            const isCenter = i === 1;
+            const radiusClass = i === 0 ? 'rounded-l-2xl' : i === s.steps.length - 1 ? 'rounded-r-2xl' : '';
+            return (
+              <FadeInUp key={step.num} delay={i * 0.1} className="flex-1">
+                <div
+                  className={`h-full p-8 ${radiusClass} border`}
+                  style={{
+                    background: isCenter ? 'rgba(0,113,227,0.1)' : 'rgba(255,255,255,0.03)',
+                    borderColor: isCenter ? 'rgba(0,113,227,0.3)' : 'rgba(255,255,255,0.07)',
+                  }}
+                >
+                  <div
+                    className="text-[48px] font-bold leading-none mb-6"
+                    style={{ color: isCenter ? 'rgba(0,113,227,0.5)' : 'rgba(255,255,255,0.08)' }}
+                  >
+                    {step.num}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 leading-snug">{t(step.title)}</h3>
+                  <p className="text-sm text-white/55 leading-relaxed">{t(step.desc)}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{t(step.title)}</h3>
-                <p className="text-gray-500 dark:text-gray-400">{t(step.desc)}</p>
-              </div>
-            </FadeInUp>
-          ))}
+              </FadeInUp>
+            );
+          })}
+        </div>
+
+        {/* Mobile: vertical */}
+        <div className="md:hidden space-y-4">
+          {s.steps.map((step, i) => {
+            const isCenter = i === 1;
+            return (
+              <FadeInUp key={step.num} delay={i * 0.1}>
+                <div
+                  className="p-7 rounded-2xl border"
+                  style={{
+                    background: isCenter ? 'rgba(0,113,227,0.1)' : 'rgba(255,255,255,0.03)',
+                    borderColor: isCenter ? 'rgba(0,113,227,0.3)' : 'rgba(255,255,255,0.07)',
+                  }}
+                >
+                  <div
+                    className="text-[40px] font-bold leading-none mb-4"
+                    style={{ color: isCenter ? 'rgba(0,113,227,0.5)' : 'rgba(255,255,255,0.1)' }}
+                  >
+                    {step.num}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{t(step.title)}</h3>
+                  <p className="text-sm text-white/55 leading-relaxed">{t(step.desc)}</p>
+                </div>
+              </FadeInUp>
+            );
+          })}
         </div>
       </div>
     </section>

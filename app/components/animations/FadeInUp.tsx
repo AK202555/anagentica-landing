@@ -1,35 +1,23 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-
 interface FadeInUpProps {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  direction?: 'up' | 'left' | 'right';
 }
 
-export default function FadeInUp({ children, delay = 0, className }: FadeInUpProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.animationDelay = `${delay}s`;
-          el.classList.add('fade-in-up');
-          observer.unobserve(el);
-        }
-      },
-      { rootMargin: '0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
+export default function FadeInUp({ children, delay = 0, className, direction = 'up' }: FadeInUpProps) {
+  const revealClass =
+    direction === 'left' ? 'reveal-left' :
+    direction === 'right' ? 'reveal-right' :
+    'reveal';
 
   return (
-    <div ref={ref} style={{ opacity: 0 }} className={className}>
+    <div
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
+      className={`${revealClass}${className ? ` ${className}` : ''}`}
+    >
       {children}
     </div>
   );

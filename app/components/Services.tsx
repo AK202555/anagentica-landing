@@ -1,42 +1,122 @@
 'use client';
 
+import { Search, Settings, Bot, BookOpen, ArrowRight } from 'lucide-react';
 import FadeInUp from './animations/FadeInUp';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
+
+const icons = [Search, Settings, Bot, BookOpen];
+const tags = [
+  { ru: 'Стратегия', en: 'Strategy' },
+  { ru: 'Автоматизация', en: 'Automation' },
+  { ru: 'Агенты ⭐', en: 'Agents ⭐' },
+  { ru: 'Обучение', en: 'Training' },
+];
 
 export default function Services() {
   const { locale, t } = useLocale();
   const s = translations.services;
 
   return (
-    <section id="services" className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
+      <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+            {t({ ru: 'Услуги', en: 'Services' })}
+          </p>
+          <h2
+            className="text-center font-bold leading-[1.1] mb-16"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+          >
             {t(s.title)}
           </h2>
         </FadeInUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {s.items.map((svc, i) => (
-            <FadeInUp key={i} delay={i * 0.05}>
-              <div className="h-full p-6 md:p-8 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-accent/40 dark:hover:border-accent-dark/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-md flex flex-col">
-                <h3 className="text-xl font-semibold mb-2">{t(svc.title)}</h3>
-                <p className="text-gray-500 dark:text-gray-400 mb-5">{t(svc.subtitle)}</p>
-                <ul className="space-y-2 mb-6 flex-1">
-                  {svc.items[locale].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <span className="text-accent dark:text-accent-dark mt-0.5">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="text-sm font-medium text-accent dark:text-accent-dark">
-                  {t(svc.price)}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {s.items.map((svc, i) => {
+            const Icon = icons[i];
+            const tag = tags[i];
+            const isHighlighted = i === 2;
+
+            return (
+              <FadeInUp key={i} delay={i * 0.1}>
+                <div
+                  className="h-full p-7 rounded-2xl border flex flex-col relative overflow-hidden transition-all duration-[250ms] hover:-translate-y-1"
+                  style={isHighlighted ? {
+                    background: '#000',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                  } : {
+                    background: '#fff',
+                    borderColor: 'rgba(0,0,0,0.07)',
+                  }}
+                >
+                  {isHighlighted && (
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{ background: 'radial-gradient(ellipse at top right, rgba(0,113,227,0.2) 0%, transparent 60%)' }}
+                    />
+                  )}
+
+                  <div className="relative z-10 flex-1 flex flex-col">
+                    {/* Tag + Icon */}
+                    <div className="flex items-center justify-between mb-5">
+                      <span
+                        className="text-xs font-semibold px-3 py-1 rounded-pill"
+                        style={{
+                          background: isHighlighted ? 'rgba(0,113,227,0.2)' : 'rgba(0,113,227,0.08)',
+                          color: isHighlighted ? '#2997ff' : '#0071e3',
+                        }}
+                      >
+                        {t(tag)}
+                      </span>
+                      <Icon
+                        size={22}
+                        strokeWidth={1.7}
+                        color={isHighlighted ? '#2997ff' : '#0071e3'}
+                      />
+                    </div>
+
+                    <h3
+                      className={`text-xl font-semibold mb-2 ${isHighlighted ? 'text-white' : 'text-[#1d1d1f]'}`}
+                    >
+                      {t(svc.title)}
+                    </h3>
+                    <p className={`text-sm mb-5 leading-relaxed ${isHighlighted ? 'text-white/60' : 'text-[rgba(0,0,0,0.55)]'}`}>
+                      {t(svc.subtitle)}
+                    </p>
+
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {svc.items[locale].map((item) => (
+                        <li key={item} className={`flex items-start gap-2 text-sm ${isHighlighted ? 'text-white/70' : 'text-[rgba(0,0,0,0.65)]'}`}>
+                          <span className={`mt-0.5 ${isHighlighted ? 'text-[#2997ff]' : 'text-[#0071e3]'}`}>•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Footer */}
+                    <div className="flex items-end justify-between pt-4 border-t" style={{ borderColor: isHighlighted ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.07)' }}>
+                      <div>
+                        <div className={`text-[18px] font-bold ${isHighlighted ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                          {t(svc.price).split('·')[0].trim()}
+                        </div>
+                        <div className={`text-xs mt-0.5 ${isHighlighted ? 'text-white/40' : 'text-[rgba(0,0,0,0.4)]'}`}>
+                          {t(svc.price).split('·')[1]?.trim()}
+                        </div>
+                      </div>
+                      <a
+                        href="#cta"
+                        className={`inline-flex items-center gap-1.5 text-sm font-medium transition-all ${isHighlighted ? 'text-[#2997ff] hover:text-white' : 'text-[#0071e3] hover:text-[#0066cc]'}`}
+                      >
+                        {t({ ru: 'Узнать подробнее', en: 'Learn more' })}
+                        <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </FadeInUp>
-          ))}
+              </FadeInUp>
+            );
+          })}
         </div>
       </div>
     </section>

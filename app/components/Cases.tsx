@@ -4,44 +4,61 @@ import FadeInUp from './animations/FadeInUp';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
 
+const accentColors = ['#0071e3', '#30d158', '#ff9f0a'];
+
 export default function Cases() {
   const { t } = useLocale();
   const s = translations.cases;
 
   return (
-    <section id="cases" className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cases" className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
+      <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+            {t({ ru: 'Кейсы', en: 'Cases' })}
+          </p>
+          <h2
+            className="text-center font-bold leading-[1.1] mb-4"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+          >
             {t(s.title)}
           </h2>
-          <p className="text-center text-gray-500 dark:text-gray-400 mb-12 text-lg">
+          <p className="text-center text-[rgba(0,0,0,0.55)] mb-12 text-lg">
             {t(s.subtitle)}
           </p>
         </FadeInUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {s.items.map((c, i) => (
-            <FadeInUp key={i} delay={i * 0.05}>
-              <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-accent/40 dark:hover:border-accent-dark/40">
-                <span className="inline-block self-start text-xs font-medium px-3 py-1 rounded-full bg-accent/10 dark:bg-accent-dark/20 text-accent dark:text-accent-dark mb-4">
-                  {t(c.badge)}
-                </span>
-                <h3 className="text-lg font-semibold mb-3">{t(c.title)}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1">
-                  {t(c.desc)}
-                </p>
-                <div className="flex gap-4">
-                  {c.metrics.map((m) => (
-                    <div key={m.value}>
-                      <div className="text-xl font-bold text-accent dark:text-accent-dark">
-                        {m.value}
+            <FadeInUp key={i} delay={i * 0.1}>
+              <div className="h-full rounded-[20px] border border-black/[0.07] bg-white overflow-hidden flex flex-col transition-all duration-[250ms] hover:-translate-y-[4px] hover:shadow-card-dk">
+                {/* Top accent bar */}
+                <div className="h-1" style={{ background: accentColors[i] }} />
+
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Badge */}
+                  <span className="inline-block self-start text-xs font-medium px-3 py-1 rounded-pill bg-[rgba(0,0,0,0.06)] text-[rgba(0,0,0,0.5)] mb-4">
+                    {t(c.badge)}
+                  </span>
+
+                  <h3 className="text-lg font-semibold mb-3 leading-snug">{t(c.title)}</h3>
+                  <p className="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed mb-6 flex-1">
+                    {t(c.desc)}
+                  </p>
+
+                  {/* Metrics */}
+                  <div className="flex gap-6 pt-4 border-t border-black/[0.07]">
+                    {c.metrics.map((m) => (
+                      <div key={m.value}>
+                        <div className="text-2xl font-bold" style={{ color: accentColors[i] }}>
+                          {m.value}
+                        </div>
+                        <div className="text-[11px] text-[rgba(0,0,0,0.45)] mt-0.5">
+                          {t(m.label)}
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {t(m.label)}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </FadeInUp>
