@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
+import GlobeBackground from './animations/GlobeBackground';
 
 export default function Hero() {
   const { t } = useLocale();
@@ -35,27 +36,8 @@ export default function Hero() {
         willChange: 'transform',
       }}
     >
-      {/* Grid pattern */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0,200,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,200,255,0.04) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Watermark text */}
-      <div
-        className="pointer-events-none select-none absolute inset-0 flex items-center justify-center overflow-hidden"
-        aria-hidden
-      >
-        <span
-          className="font-bold text-white whitespace-nowrap"
-          style={{ fontSize: 'clamp(6rem,18vw,18rem)', opacity: 0.04, letterSpacing: '-0.04em' }}
-        >
-          ANAGENTICA
-        </span>
-      </div>
+      {/* Globe background */}
+      <GlobeBackground />
 
       {/* Parallax glow 1 */}
       <div
@@ -94,7 +76,7 @@ export default function Hero() {
       />
 
       {/* Glass card */}
-      <div className="relative z-10 w-full max-w-[760px] mx-auto">
+      <div className="relative z-10 w-full max-w-[900px] mx-auto">
         <div
           className="text-center px-6 sm:px-12 py-14 sm:py-16"
           style={{

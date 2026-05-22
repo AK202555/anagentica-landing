@@ -11,6 +11,16 @@
   0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
   50%       { transform: translate(-50%, -50%) translateY(-20px); }
 }
+@keyframes nodePulse {
+  0%, 100% { r: 18; opacity: 1; }
+  50%       { r: 26; opacity: 0.5; }
+}
+@keyframes nodeBlink {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+.node-pulse { animation: nodePulse 4s ease-in-out infinite; }
+.node-blink { animation: nodeBlink 3s ease-in-out infinite; }
 
 .fade-up  { animation: fadeUp 0.7s cubic-bezier(0.25,0.46,0.45,0.94) both; }
 .delay-1  { animation-delay: 0.1s; }
