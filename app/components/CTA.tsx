@@ -51,10 +51,10 @@ export default function CTA() {
   };
 
   return (
-    <section id="cta" className="bg-black text-white" style={{ padding: '100px 24px' }}>
+    <section id="cta" className="text-white" style={{ background: '#050b14', padding: '100px 24px' }}>
       <div className="max-w-[680px] mx-auto text-center">
         <FadeInUp>
-          <p className="text-xs font-semibold uppercase tracking-[1px] text-[#2997ff] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-[1px] text-[#00d4ff] mb-3">
             {t({ ru: 'Контакт', en: 'Contact' })}
           </p>
           <h2
@@ -71,8 +71,8 @@ export default function CTA() {
         <FadeInUp delay={0.1}>
           {submitted ? (
             <div className="flex flex-col items-center gap-4 py-16">
-              <div className="w-16 h-16 rounded-full bg-[rgba(0,113,227,0.15)] flex items-center justify-center">
-                <CheckCircle size={32} color="#2997ff" />
+              <div className="w-16 h-16 rounded-full bg-[rgba(0,200,255,0.15)] flex items-center justify-center">
+                <CheckCircle size={32} color="#00d4ff" />
               </div>
               <p className="text-xl font-semibold">{t({ ru: 'Заявка отправлена!', en: 'Request sent!' })}</p>
               <p className="text-white/55 max-w-sm">
@@ -98,7 +98,7 @@ export default function CTA() {
                     onChange={e => setForm({ ...form, name: e.target.value })}
                     placeholder={t(s.namePlaceholder)}
                     style={inputStyle}
-                    onFocus={e => (e.target.style.borderColor = 'rgba(0,113,227,0.6)')}
+                    onFocus={e => (e.target.style.borderColor = 'rgba(0,200,255,0.6)')}
                     onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.12)')}
                   />
                 </div>
@@ -110,7 +110,7 @@ export default function CTA() {
                     onChange={e => { setForm({ ...form, contact: e.target.value }); setContactError(false); }}
                     placeholder={t(s.contactPlaceholder)}
                     style={{ ...inputStyle, borderColor: contactError ? '#ff453a' : 'rgba(255,255,255,0.12)' }}
-                    onFocus={e => (e.target.style.borderColor = contactError ? '#ff453a' : 'rgba(0,113,227,0.6)')}
+                    onFocus={e => (e.target.style.borderColor = contactError ? '#ff453a' : 'rgba(0,200,255,0.6)')}
                     onBlur={e => (e.target.style.borderColor = contactError ? '#ff453a' : 'rgba(255,255,255,0.12)')}
                   />
                   {contactError && <p className="text-xs text-[#ff453a] mt-1">{t(s.contactError)}</p>}
@@ -123,7 +123,7 @@ export default function CTA() {
                     onChange={e => setForm({ ...form, task: e.target.value })}
                     placeholder={t(s.taskPlaceholder)}
                     style={{ ...inputStyle, resize: 'none' }}
-                    onFocus={e => (e.target.style.borderColor = 'rgba(0,113,227,0.6)')}
+                    onFocus={e => (e.target.style.borderColor = 'rgba(0,200,255,0.6)')}
                     onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.12)')}
                   />
                 </div>
@@ -137,7 +137,7 @@ export default function CTA() {
                   />
                   <span className="text-xs text-white/40">
                     {t(s.consent)}{' '}
-                    <a href="/privacy" className="text-[#2997ff] hover:underline">{t(s.consentLink)}</a>
+                    <a href="/privacy" className="text-[#00d4ff] hover:underline">{t(s.consentLink)}</a>
                   </span>
                 </label>
                 {consentError && <p className="text-xs text-[#ff453a]">{t(s.consentRequired)}</p>}
@@ -146,7 +146,7 @@ export default function CTA() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-[15px] text-base font-medium text-white bg-[#0071e3] hover:bg-[#0077ed] disabled:opacity-60 transition-colors"
+                  className="w-full py-[15px] text-base font-medium text-white bg-[#00c8ff] hover:bg-[#0077ed] disabled:opacity-60 transition-colors"
                   style={{ borderRadius: 12 }}
                 >
                   {loading ? '...' : t(s.submit)}
@@ -163,7 +163,7 @@ export default function CTA() {
               href="https://t.me/Anagentica_Asistant_bot"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#2997ff] hover:underline font-medium"
+              className="inline-flex items-center gap-1.5 text-[#00d4ff] hover:underline font-medium"
             >
               <Send size={14} />
               Telegram

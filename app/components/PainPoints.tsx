@@ -15,7 +15,7 @@ export default function PainPoints() {
     <section id="pains" className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00c8ff] mb-3">
             {t({ ru: 'Боли', en: 'Pain points' })}
           </p>
           <h2
@@ -37,9 +37,9 @@ export default function PainPoints() {
                 <div className="h-full p-7 rounded-2xl border border-black/[0.06] bg-white transition-all duration-[250ms] hover:-translate-y-[3px] hover:shadow-card">
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: 'rgba(0,113,227,0.08)' }}
+                    style={{ background: 'rgba(0,200,255,0.08)' }}
                   >
-                    <Icon size={22} color="#0071e3" strokeWidth={1.7} />
+                    <Icon size={22} color="#00c8ff" strokeWidth={1.7} />
                   </div>
                   <h3 className="text-[17px] font-semibold mb-2 leading-snug">{t(pain.title)}</h3>
                   <p className="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">{t(pain.desc)}</p>
@@ -50,7 +50,7 @@ export default function PainPoints() {
 
           {/* CTA card */}
           <FadeInUp delay={s.items.length * 0.1}>
-            <div className="h-full p-7 rounded-2xl bg-[#0071e3] text-white transition-all duration-[250ms] hover:-translate-y-[3px] hover:shadow-card-dk flex flex-col">
+            <div className="h-full p-7 rounded-2xl bg-[#00c8ff] text-white transition-all duration-[250ms] hover:-translate-y-[3px] hover:shadow-card-dk flex flex-col">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                 style={{ background: 'rgba(255,255,255,0.15)' }}

@@ -15,7 +15,7 @@ export default function TargetAudience() {
     <section className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00c8ff] mb-3">
             {t({ ru: 'Клиенты', en: 'Clients' })}
           </p>
           <h2
@@ -34,9 +34,9 @@ export default function TargetAudience() {
                 <div className="h-full p-7 rounded-2xl border border-black/[0.06] bg-white text-center transition-all duration-[250ms] hover:-translate-y-[3px] hover:shadow-card">
                   <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                    style={{ background: 'rgba(0,113,227,0.08)' }}
+                    style={{ background: 'rgba(0,200,255,0.08)' }}
                   >
-                    <Icon size={26} color="#0071e3" strokeWidth={1.6} />
+                    <Icon size={26} color="#00c8ff" strokeWidth={1.6} />
                   </div>
                   <h3 className="text-lg font-semibold mb-3">{t(a.title)}</h3>
                   <p className="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">{t(a.desc)}</p>

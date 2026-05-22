@@ -11,12 +11,12 @@ export default function AboutFounder() {
   const s = translations.about;
 
   return (
-    <section id="about" className="bg-black text-white" style={{ padding: '100px 24px' }}>
+    <section id="about" className="text-white" style={{ background: '#050b14', padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <div className="flex flex-col md:flex-row gap-20">
           {/* Left column */}
           <FadeInUp direction="left" className="flex-1 min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+            <p className="text-xs font-semibold uppercase tracking-[1px] text-[#00c8ff] mb-3">
               {t({ ru: 'Основатель', en: 'Founder' })}
             </p>
             <h2
@@ -36,7 +36,7 @@ export default function AboutFounder() {
             <div className="grid grid-cols-2 gap-3 mb-8">
               {s.stats.map((stat, i) => (
                 <div key={i} className="p-4 rounded-xl bg-white/[0.05]">
-                  <div className="text-xl font-bold text-[#2997ff]">
+                  <div className="text-xl font-bold text-[#00d4ff]">
                     {typeof stat.value === 'string' ? stat.value : t(stat.value)}
                   </div>
                   <div className="text-xs text-white/40 mt-1">{t(stat.label)}</div>
@@ -82,7 +82,7 @@ export default function AboutFounder() {
                 />
                 <div
                   className="w-full aspect-square rounded-2xl hidden items-center justify-center text-white/40 text-sm"
-                  style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #0071e3 100%)', display: 'none' }}
+                  style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #00c8ff 100%)', display: 'none' }}
                 >
                   Анас Хазиев
                 </div>
@@ -96,7 +96,7 @@ export default function AboutFounder() {
             <ul className="space-y-3">
               {s.achievements[locale].map((a, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-white/60 leading-relaxed">
-                  <span className="text-[#0071e3] mt-0.5 shrink-0">•</span>
+                  <span className="text-[#00c8ff] mt-0.5 shrink-0">•</span>
                   {a}
                 </li>
               ))}

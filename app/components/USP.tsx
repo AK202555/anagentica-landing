@@ -12,10 +12,10 @@ export default function USP() {
   const s = translations.usp;
 
   return (
-    <section className="bg-black text-white" style={{ padding: '100px 24px' }}>
+    <section className="text-white" style={{ background: '#050b14', padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#2997ff] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00d4ff] mb-3">
             {t({ ru: 'Почему мы', en: 'Why us' })}
           </p>
           <h2
@@ -50,11 +50,11 @@ export default function USP() {
                   <div
                     className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center shrink-0"
                     style={{
-                      background: 'rgba(0,113,227,0.1)',
-                      border: '1px solid rgba(0,113,227,0.2)',
+                      background: 'rgba(0,200,255,0.1)',
+                      border: '1px solid rgba(0,200,255,0.2)',
                     }}
                   >
-                    <Icon size={24} color="#2997ff" strokeWidth={1.7} />
+                    <Icon size={24} color="#00d4ff" strokeWidth={1.7} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2 leading-snug">{t(u.title)}</h3>

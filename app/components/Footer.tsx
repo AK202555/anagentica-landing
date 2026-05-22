@@ -11,8 +11,8 @@ export default function Footer() {
 
   return (
     <footer
-      className="bg-black text-white"
-      style={{ borderTop: '1px solid rgba(255,255,255,0.07)', padding: '60px 24px 40px' }}
+      className="text-white"
+      style={{ background: '#050b14', borderTop: '1px solid rgba(255,255,255,0.07)', padding: '60px 24px 40px' }}
     >
       <div className="max-w-[1000px] mx-auto">
         {/* Main grid */}
@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Brand col */}
           <div className="col-span-2">
             <a href="#" className="text-[22px] font-bold leading-none inline-block mb-3">
-              <span className="text-[#0071e3] underline decoration-[3px] underline-offset-2">An</span>
+              <span className="text-[#00c8ff] underline decoration-[3px] underline-offset-2">An</span>
               <span className="text-white">agentica</span>
             </a>
             <p className="text-sm text-white/45 mb-4 max-w-[200px] leading-relaxed">
@@ -30,7 +30,7 @@ export default function Footer() {
               href="https://t.me/Anagentica_Asistant_bot"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-[#2997ff] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-[#00d4ff] hover:text-white transition-colors"
             >
               <Send size={14} />
               Telegram

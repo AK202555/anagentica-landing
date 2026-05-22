@@ -21,7 +21,7 @@ export default function Services() {
     <section id="services" className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00c8ff] mb-3">
             {t({ ru: 'Услуги', en: 'Services' })}
           </p>
           <h2
@@ -43,7 +43,7 @@ export default function Services() {
                 <div
                   className="h-full p-7 rounded-2xl border flex flex-col relative overflow-hidden transition-all duration-[250ms] hover:-translate-y-1"
                   style={isHighlighted ? {
-                    background: '#000',
+                    background: '#050b14',
                     borderColor: 'rgba(255,255,255,0.1)',
                   } : {
                     background: '#fff',
@@ -53,7 +53,7 @@ export default function Services() {
                   {isHighlighted && (
                     <div
                       className="absolute inset-0 pointer-events-none"
-                      style={{ background: 'radial-gradient(ellipse at top right, rgba(0,113,227,0.2) 0%, transparent 60%)' }}
+                      style={{ background: 'radial-gradient(ellipse at top right, rgba(0,200,255,0.2) 0%, transparent 60%)' }}
                     />
                   )}
 
@@ -63,8 +63,8 @@ export default function Services() {
                       <span
                         className="text-xs font-semibold px-3 py-1 rounded-pill"
                         style={{
-                          background: isHighlighted ? 'rgba(0,113,227,0.2)' : 'rgba(0,113,227,0.08)',
-                          color: isHighlighted ? '#2997ff' : '#0071e3',
+                          background: isHighlighted ? 'rgba(0,200,255,0.2)' : 'rgba(0,200,255,0.08)',
+                          color: isHighlighted ? '#00d4ff' : '#00c8ff',
                         }}
                       >
                         {t(tag)}
@@ -72,7 +72,7 @@ export default function Services() {
                       <Icon
                         size={22}
                         strokeWidth={1.7}
-                        color={isHighlighted ? '#2997ff' : '#0071e3'}
+                        color={isHighlighted ? '#00d4ff' : '#00c8ff'}
                       />
                     </div>
 
@@ -88,7 +88,7 @@ export default function Services() {
                     <ul className="space-y-2 mb-6 flex-1">
                       {svc.items[locale].map((item) => (
                         <li key={item} className={`flex items-start gap-2 text-sm ${isHighlighted ? 'text-white/70' : 'text-[rgba(0,0,0,0.65)]'}`}>
-                          <span className={`mt-0.5 ${isHighlighted ? 'text-[#2997ff]' : 'text-[#0071e3]'}`}>•</span>
+                          <span className={`mt-0.5 ${isHighlighted ? 'text-[#00d4ff]' : 'text-[#00c8ff]'}`}>•</span>
                           {item}
                         </li>
                       ))}
@@ -106,7 +106,7 @@ export default function Services() {
                       </div>
                       <a
                         href="#cta"
-                        className={`inline-flex items-center gap-1.5 text-sm font-medium transition-all ${isHighlighted ? 'text-[#2997ff] hover:text-white' : 'text-[#0071e3] hover:text-[#0066cc]'}`}
+                        className={`inline-flex items-center gap-1.5 text-sm font-medium transition-all ${isHighlighted ? 'text-[#00d4ff] hover:text-white' : 'text-[#00c8ff] hover:text-[#0066cc]'}`}
                       >
                         {t({ ru: 'Узнать подробнее', en: 'Learn more' })}
                         <ArrowRight size={14} />

@@ -31,7 +31,7 @@ export default function Security() {
       <div className="max-w-[1000px] mx-auto">
         {/* Eyebrow */}
         <FadeInUp>
-          <p className="text-xs font-semibold uppercase tracking-[2px] text-[#0071e3] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[2px] text-[#00c8ff] mb-4">
             {t({ ru: 'Безопасность', en: 'Security' })}
           </p>
         </FadeInUp>
@@ -68,9 +68,9 @@ export default function Security() {
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(0,113,227,0.12)', border: '1px solid rgba(0,113,227,0.2)' }}
+                  style={{ background: 'rgba(0,200,255,0.12)', border: '1px solid rgba(0,200,255,0.2)' }}
                 >
-                  <Icon size={22} color="#2997ff" />
+                  <Icon size={22} color="#00d4ff" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#1d1d1f] mb-3">{t(title)}</h3>
                 <p className="text-black/55 text-sm leading-relaxed">{t(text)}</p>

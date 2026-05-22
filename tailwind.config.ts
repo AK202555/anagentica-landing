@@ -7,13 +7,14 @@ const config: Config = {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#0071e3',
-          dark: '#2997ff',
+          DEFAULT: '#00c8ff',
+          dark: '#00d4ff',
         },
         surface: {
           light: '#f5f5f7',
-          dark: '#000000',
+          dark: '#050b14',
         },
+        navy: '#050b14',
       },
       fontFamily: {
         sans: [

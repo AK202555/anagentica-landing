@@ -28,10 +28,10 @@ export default function Methodology() {
   const s = translations.methodology;
 
   return (
-    <section className="bg-black text-white" style={{ padding: '100px 24px' }}>
+    <section className="text-white" style={{ background: '#050b14', padding: '100px 24px' }}>
       <div className="max-w-[860px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#2997ff] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00d4ff] mb-3">
             {t({ ru: 'Как работаем', en: 'How we work' })}
           </p>
           <h2
@@ -56,7 +56,7 @@ export default function Methodology() {
                     <div
                       className="w-14 h-14 rounded-full flex items-center justify-center text-base font-bold shrink-0"
                       style={isFirst ? {
-                        background: '#0071e3',
+                        background: '#00c8ff',
                         color: '#fff',
                       } : {
                         background: 'rgba(255,255,255,0.05)',

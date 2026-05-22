@@ -4,7 +4,7 @@ import FadeInUp from './animations/FadeInUp';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
 
-const accentColors = ['#0071e3', '#30d158', '#ff9f0a'];
+const accentColors = ['#00c8ff', '#30d158', '#ff9f0a'];
 
 export default function Cases() {
   const { t } = useLocale();
@@ -14,7 +14,7 @@ export default function Cases() {
     <section id="cases" className="bg-[#f5f5f7] text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#0071e3] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00c8ff] mb-3">
             {t({ ru: 'Кейсы', en: 'Cases' })}
           </p>
           <h2

@@ -9,10 +9,10 @@ export default function Approach() {
   const s = translations.approach;
 
   return (
-    <section id="approach" className="bg-black text-white" style={{ padding: '100px 24px' }}>
+    <section id="approach" className="text-white" style={{ background: '#050b14', padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <FadeInUp>
-          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#2997ff] mb-3">
+          <p className="text-center text-xs font-semibold uppercase tracking-[1px] text-[#00d4ff] mb-3">
             {t({ ru: 'Подход', en: 'Approach' })}
           </p>
           <h2
@@ -36,13 +36,13 @@ export default function Approach() {
                 <div
                   className={`h-full p-8 ${radiusClass} border`}
                   style={{
-                    background: isCenter ? 'rgba(0,113,227,0.1)' : 'rgba(255,255,255,0.03)',
-                    borderColor: isCenter ? 'rgba(0,113,227,0.3)' : 'rgba(255,255,255,0.07)',
+                    background: isCenter ? 'rgba(0,200,255,0.1)' : 'rgba(255,255,255,0.03)',
+                    borderColor: isCenter ? 'rgba(0,200,255,0.3)' : 'rgba(255,255,255,0.07)',
                   }}
                 >
                   <div
                     className="text-[48px] font-bold leading-none mb-6"
-                    style={{ color: isCenter ? 'rgba(0,113,227,0.5)' : 'rgba(255,255,255,0.08)' }}
+                    style={{ color: isCenter ? 'rgba(0,200,255,0.5)' : 'rgba(255,255,255,0.08)' }}
                   >
                     {step.num}
                   </div>
@@ -63,13 +63,13 @@ export default function Approach() {
                 <div
                   className="p-7 rounded-2xl border"
                   style={{
-                    background: isCenter ? 'rgba(0,113,227,0.1)' : 'rgba(255,255,255,0.03)',
-                    borderColor: isCenter ? 'rgba(0,113,227,0.3)' : 'rgba(255,255,255,0.07)',
+                    background: isCenter ? 'rgba(0,200,255,0.1)' : 'rgba(255,255,255,0.03)',
+                    borderColor: isCenter ? 'rgba(0,200,255,0.3)' : 'rgba(255,255,255,0.07)',
                   }}
                 >
                   <div
                     className="text-[40px] font-bold leading-none mb-4"
-                    style={{ color: isCenter ? 'rgba(0,113,227,0.5)' : 'rgba(255,255,255,0.1)' }}
+                    style={{ color: isCenter ? 'rgba(0,200,255,0.5)' : 'rgba(255,255,255,0.1)' }}
                   >
                     {step.num}
                   </div>

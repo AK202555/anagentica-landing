@@ -54,7 +54,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-7 h-full flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="text-[22px] font-bold leading-none select-none">
-          <span className="text-[#0071e3] underline decoration-[3px] underline-offset-2">An</span>
+          <span className="text-[#00c8ff] underline decoration-[3px] underline-offset-2">An</span>
           <span className={`transition-colors duration-300 ${lightBg ? 'text-[#1d1d1f]' : 'text-white'}`}>agentica</span>
         </a>
 
@@ -83,7 +83,7 @@ export default function Navbar() {
 
           <a
             href="#cta"
-            className="hidden md:inline-flex px-[18px] py-[7px] text-[13px] font-medium text-white bg-[#0071e3] hover:bg-[#0077ed] rounded-pill transition-colors"
+            className="hidden md:inline-flex px-[18px] py-[7px] text-[13px] font-medium text-white bg-[#00c8ff] hover:bg-[#0077ed] rounded-pill transition-colors"
           >
             {t(translations.nav.cta)}
           </a>
@@ -128,7 +128,7 @@ export default function Navbar() {
           <a
             href="#cta"
             onClick={() => setMobileOpen(false)}
-            className="inline-flex px-5 py-2.5 text-sm font-medium text-white bg-[#0071e3] rounded-pill"
+            className="inline-flex px-5 py-2.5 text-sm font-medium text-white bg-[#00c8ff] rounded-pill"
           >
             {t(translations.nav.cta)}
           </a>
