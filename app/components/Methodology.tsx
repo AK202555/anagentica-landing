@@ -69,7 +69,7 @@ export default function Methodology() {
                     {!isLast && (
                       <div
                         className="flex-1 w-px mt-3"
-                        style={{ background: 'rgba(255,255,255,0.07)', minHeight: 24 }}
+                        style={{ background: 'rgba(255,255,255,0.35)', minHeight: 24 }}
                       />
                     )}
                   </div>

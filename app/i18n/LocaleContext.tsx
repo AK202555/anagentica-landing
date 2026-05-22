@@ -42,10 +42,13 @@ function detectLocale(): Locale {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window === 'undefined') return 'ru';
-    return detectLocale();
-  });
+  const [locale, setLocaleState] = useState<Locale>('ru');
+
+  useEffect(() => {
+    const detected = detectLocale();
+    setLocaleState(detected);
+    document.documentElement.lang = detected;
+  }, []);
 
   useEffect(() => {
     setCookie('locale', locale);

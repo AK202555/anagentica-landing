@@ -11,7 +11,7 @@ export default function AboutFounder() {
   const s = translations.about;
 
   return (
-    <section id="about" className="bg-white text-[#1d1d1f]" style={{ padding: '100px 24px' }}>
+    <section id="about" className="bg-black text-white" style={{ padding: '100px 24px' }}>
       <div className="max-w-[1000px] mx-auto">
         <div className="flex flex-col md:flex-row gap-20">
           {/* Left column */}
@@ -26,7 +26,7 @@ export default function AboutFounder() {
               {t(s.title)}
             </h2>
 
-            <div className="space-y-4 text-[rgba(0,0,0,0.65)] mb-8 text-[17px] leading-relaxed">
+            <div className="space-y-4 text-white/60 mb-8 text-[17px] leading-relaxed">
               {s.bio[locale].map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
@@ -35,24 +35,24 @@ export default function AboutFounder() {
             {/* Stats 2×2 */}
             <div className="grid grid-cols-2 gap-3 mb-8">
               {s.stats.map((stat, i) => (
-                <div key={i} className="p-4 rounded-xl bg-[#f5f5f7]">
-                  <div className="text-xl font-bold text-[#0071e3]">
+                <div key={i} className="p-4 rounded-xl bg-white/[0.05]">
+                  <div className="text-xl font-bold text-[#2997ff]">
                     {typeof stat.value === 'string' ? stat.value : t(stat.value)}
                   </div>
-                  <div className="text-xs text-[rgba(0,0,0,0.45)] mt-1">{t(stat.label)}</div>
+                  <div className="text-xs text-white/40 mt-1">{t(stat.label)}</div>
                 </div>
               ))}
             </div>
 
             {/* Companies */}
-            <p className="text-xs font-semibold uppercase tracking-[1px] text-[rgba(0,0,0,0.4)] mb-3">
+            <p className="text-xs font-semibold uppercase tracking-[1px] text-white/35 mb-3">
               {t(s.experienceLabel)}
             </p>
             <div className="flex flex-wrap gap-2">
               {companies.map((c) => (
                 <span
                   key={c}
-                  className="px-3 py-1.5 text-sm rounded-lg border border-black/[0.08] bg-[#f5f5f7] text-[rgba(0,0,0,0.65)]"
+                  className="px-3 py-1.5 text-sm rounded-lg border border-white/[0.1] bg-white/[0.05] text-white/60"
                 >
                   {c}
                 </span>
@@ -90,12 +90,12 @@ export default function AboutFounder() {
             </div>
 
             {/* Achievements */}
-            <p className="text-xs font-semibold uppercase tracking-[1px] text-[rgba(0,0,0,0.4)] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[1px] text-white/35 mb-4">
               {t(s.achievementsLabel)}
             </p>
             <ul className="space-y-3">
               {s.achievements[locale].map((a, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-[rgba(0,0,0,0.65)] leading-relaxed">
+                <li key={i} className="flex items-start gap-3 text-sm text-white/60 leading-relaxed">
                   <span className="text-[#0071e3] mt-0.5 shrink-0">•</span>
                   {a}
                 </li>

@@ -40,15 +40,15 @@ export const translations = {
       },
       {
         title: { ru: 'Заявки теряются или обрабатываются слишком медленно', en: 'Leads get lost or are processed too slowly' },
-        desc: { ru: 'Клиент ждёт — и уходит к конкуренту', en: 'The client waits — and goes to a competitor' },
+        desc: { ru: 'Клиент ждёт и уходит к конкуренту', en: 'The client waits, then goes to a competitor' },
       },
       {
         title: { ru: 'Хочется внедрить AI, но непонятно с чего начать', en: 'Want to implement AI but don\'t know where to start' },
-        desc: { ru: 'Инструментов много — что реально работает?', en: 'Many tools — which ones actually work?' },
+        desc: { ru: 'Инструментов много. Что реально работает?', en: 'Many tools. Which ones actually work?' },
       },
       {
-        title: { ru: 'Нет времени заниматься стратегией — всё время в операционке', en: 'No time for strategy — always stuck in operations' },
-        desc: { ru: 'Бизнес работает на вас, а не вы — на бизнес', en: 'The business runs you, not the other way around' },
+        title: { ru: 'Нет времени на стратегию: всё уходит в операционку', en: 'No time for strategy, always stuck in operations' },
+        desc: { ru: 'Бизнес работает на вас, а не вы на бизнес', en: 'The business runs you, not the other way around' },
       },
       {
         title: { ru: 'Команда маленькая, а задач как у корпорации', en: 'Small team, but tasks like a corporation' },
@@ -56,8 +56,8 @@ export const translations = {
       },
     ],
     footer: {
-      ru: 'Мы решаем именно это — без лишних затрат и без программиста в штате.',
-      en: 'We solve exactly this — without extra costs and without an in-house developer.',
+      ru: 'Мы решаем именно это: без лишних затрат и без программиста в штате.',
+      en: 'We solve exactly this: without extra costs and without an in-house developer.',
     },
   },
 
@@ -65,8 +65,8 @@ export const translations = {
   approach: {
     title: { ru: 'AI, который реально работает в\u00a0вашем деле', en: 'AI that actually works for\u00a0your business' },
     subtitle: {
-      ru: 'Мы не продаём технологию ради технологии. Берём конкретную задачу вашего бизнеса и решаем её с помощью AI — измеримо, понятно, без лишнего.',
-      en: 'We don\'t sell technology for technology\'s sake. We take a specific business problem and solve it with AI — measurably, clearly, without fluff.',
+      ru: 'Мы не продаём технологию ради технологии. Берём конкретную задачу вашего бизнеса и решаем её с помощью AI: измеримо, понятно, без лишнего.',
+      en: 'We don\'t sell technology for technology\'s sake. We take a specific business problem and solve it with AI: measurably, clearly, without fluff.',
     },
     steps: [
       {
@@ -77,7 +77,7 @@ export const translations = {
       {
         num: '02',
         title: { ru: 'Строим под вас, а не по шаблону', en: 'We build for you, not from a template' },
-        desc: { ru: 'Каждое решение — под вашу команду, ваши инструменты и ваши процессы.', en: 'Every solution is tailored to your team, your tools, and your processes.' },
+        desc: { ru: 'Каждое решение строится под вашу команду, ваши инструменты и ваши процессы.', en: 'Every solution is tailored to your team, your tools, and your processes.' },
       },
       {
         num: '03',
@@ -132,7 +132,7 @@ export const translations = {
 
   // ========== METHODOLOGY ==========
   methodology: {
-    title: { ru: 'От заявки до результата — прозрачно', en: 'From request to result — transparent' },
+    title: { ru: 'От заявки до результата: прозрачно', en: 'From first call to final result' },
     steps: [
       { num: 1, title: { ru: 'Бесплатный разбор', en: 'Free audit' }, time: { ru: '30 минут', en: '30 minutes' } },
       { num: 2, title: { ru: 'Аудит и план', en: 'Audit & plan' }, time: { ru: '1–2 недели', en: '1–2 weeks' } },
@@ -204,7 +204,7 @@ export const translations = {
       },
       {
         title: { ru: 'Полный цикл', en: 'Full cycle' },
-        desc: { ru: 'От стратегии до запуска и обучения — одна точка входа.', en: 'From strategy to launch and training — one point of entry.' },
+        desc: { ru: 'От стратегии до запуска и обучения: одна точка входа.', en: 'From strategy to launch and training: one point of entry.' },
       },
     ],
   },
@@ -215,11 +215,11 @@ export const translations = {
     items: [
       {
         title: { ru: 'Малый и средний бизнес', en: 'Small & medium business' },
-        desc: { ru: 'Автоматизация продаж, обработки заявок и внутренних процессов — без раздутых бюджетов.', en: 'Sales automation, lead processing, and internal workflows — without inflated budgets.' },
+        desc: { ru: 'Автоматизация продаж, обработки заявок и внутренних процессов. Без раздутых бюджетов.', en: 'Sales automation, lead processing, and internal workflows. Without inflated budgets.' },
       },
       {
         title: { ru: 'Частные практики', en: 'Private practices' },
-        desc: { ru: 'Врачи, юристы, риелторы — AI-ассистенты для записи, консультаций и работы с клиентами.', en: 'Doctors, lawyers, realtors — AI assistants for scheduling, consultations, and client management.' },
+        desc: { ru: 'Врачи, юристы, риелторы: AI-ассистенты для записи, консультаций и работы с клиентами.', en: 'Doctors, lawyers, realtors: AI assistants for scheduling, consultations, and client management.' },
       },
       {
         title: { ru: 'Стартапы', en: 'Startups' },
@@ -227,17 +227,17 @@ export const translations = {
       },
     ],
     footer: {
-      ru: 'Если не уверены, подходите ли вы — просто напишите. Разберём за 15 минут.',
+      ru: 'Если не уверены, подходите ли вы, просто напишите. Разберём за 15 минут.',
       en: 'Not sure if we\'re a fit? Just reach out. We\'ll figure it out in 15 minutes.',
     },
   },
 
   // ========== ABOUT FOUNDER ==========
   about: {
-    title: { ru: 'Привет, я Анас — основатель Anagentica', en: 'Hi, I\'m Anas — founder of Anagentica' },
+    title: { ru: 'Привет, я Анас, основатель Anagentica', en: 'Hi, I\'m Anas, founder of Anagentica' },
     subtitle: {
-      ru: '15+ лет в ИТ. Последние годы — на стыке бизнеса и технологий в крупнейших международных компаниях.',
-      en: '15+ years in IT. Recent years — at the intersection of business and technology in major international companies.',
+      ru: '15+ лет в ИТ. Последние годы провёл на стыке бизнеса и технологий в крупнейших международных компаниях.',
+      en: '15+ years in IT. Recent years spent at the intersection of business and technology in major international companies.',
     },
     stats: [
       { value: { ru: '15+ лет', en: '15+ years' }, label: { ru: 'опыт', en: 'experience' } },
@@ -247,12 +247,12 @@ export const translations = {
     ],
     bio: {
       ru: [
-        'Я прошёл путь от инженера до руководителя цифровой трансформации в международных корпорациях. Видел изнутри, как компании теряют миллионы на неэффективных процессах — и как AI может это изменить за недели, а не годы.',
-        'Сегодня я помогаю малому и среднему бизнесу получить доступ к тем же AI-решениям, которые используют корпорации — но без корпоративных бюджетов и сроков.',
+        'Я прошёл путь от инженера до руководителя цифровой трансформации в международных корпорациях. Видел изнутри, как компании теряют миллионы на неэффективных процессах и как AI может это изменить за недели, а не годы.',
+        'Сегодня я помогаю малому и среднему бизнесу получить доступ к тем же AI-решениям, которые используют корпорации, без корпоративных бюджетов и сроков.',
       ],
       en: [
-        'I went from engineer to digital transformation leader at international corporations. I\'ve seen firsthand how companies lose millions on inefficient processes — and how AI can change that in weeks, not years.',
-        'Today I help small and medium businesses access the same AI solutions that corporations use — but without corporate budgets and timelines.',
+        'I went from engineer to digital transformation leader at international corporations. I\'ve seen firsthand how companies lose millions on inefficient processes, and how AI can change that in weeks, not years.',
+        'Today I help small and medium businesses access the same AI solutions that corporations use, without corporate budgets or timelines.',
       ],
     },
     experienceLabel: { ru: 'Опыт работы', en: 'Experience' },
@@ -284,8 +284,8 @@ export const translations = {
   cta: {
     title: { ru: 'Разберём вашу задачу бесплатно', en: 'We\'ll analyze your challenge for free' },
     subtitle: {
-      ru: '30 минут — и вы уйдёте с конкретным пониманием, что и как можно автоматизировать. Без давления и без обязательств.',
-      en: '30 minutes — and you\'ll leave with a clear understanding of what and how can be automated. No pressure, no obligations.',
+      ru: 'За 30 минут вы уйдёте с конкретным пониманием, что и как можно автоматизировать. Без давления и без обязательств.',
+      en: 'In 30 minutes you\'ll leave with a clear understanding of what can be automated and how. No pressure, no obligations.',
     },
     thankYou: { ru: 'Спасибо! Мы свяжемся с вами в ближайшее время.', en: 'Thank you! We\'ll get back to you shortly.' },
     nameLabel: { ru: 'Имя', en: 'Name' },

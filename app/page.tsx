@@ -9,6 +9,7 @@ import Cases from './components/Cases';
 import USP from './components/USP';
 import TargetAudience from './components/TargetAudience';
 import AboutFounder from './components/AboutFounder';
+import Security from './components/Security';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 
@@ -29,6 +30,7 @@ export default function Home() {
         <USP />
         <TargetAudience />
         <AboutFounder />
+        <Security />
         <CTA />
       </main>
       <Footer />
