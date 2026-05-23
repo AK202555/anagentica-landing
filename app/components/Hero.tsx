@@ -1,25 +1,11 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { useLocale } from '../i18n/LocaleContext';
 import { translations } from '../i18n/translations';
-import GlobeBackground from './animations/GlobeBackground';
 
 export default function Hero() {
   const { t } = useLocale();
   const s = translations.hero;
-  const glow1Ref = useRef<HTMLDivElement>(null);
-  const glow2Ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (glow1Ref.current) glow1Ref.current.style.transform = `translate(-50%, calc(-50% + ${y * 0.3}px))`;
-      if (glow2Ref.current) glow2Ref.current.style.transform = `translate(-50%, calc(-50% + ${y * 0.15}px))`;
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const stats = [
     ...s.stats,
@@ -32,49 +18,8 @@ export default function Hero() {
       style={{
         background: '#050b14',
         padding: '100px 24px 80px',
-        transform: 'translateZ(0)',
-        willChange: 'transform',
       }}
     >
-      {/* Globe background */}
-      <GlobeBackground />
-
-      {/* Parallax glow 1 */}
-      <div
-        ref={glow1Ref}
-        className="pointer-events-none absolute"
-        style={{
-          top: '30%', left: '50%',
-          width: 900, height: 600,
-          transform: 'translate(-50%, -50%)',
-          background: 'radial-gradient(ellipse, rgba(0,200,255,0.12) 0%, transparent 65%)',
-          animation: 'float 7s ease-in-out infinite',
-        }}
-      />
-      {/* Parallax glow 2 */}
-      <div
-        ref={glow2Ref}
-        className="pointer-events-none absolute"
-        style={{
-          top: '65%', left: '25%',
-          width: 400, height: 400,
-          transform: 'translate(-50%, -50%)',
-          background: 'radial-gradient(ellipse, rgba(0,200,255,0.07) 0%, transparent 70%)',
-          animation: 'float 9s ease-in-out infinite reverse',
-        }}
-      />
-      {/* Glow 3 — right */}
-      <div
-        className="pointer-events-none absolute"
-        style={{
-          top: '50%', left: '80%',
-          width: 300, height: 300,
-          transform: 'translate(-50%, -50%)',
-          background: 'radial-gradient(ellipse, rgba(0,200,255,0.06) 0%, transparent 70%)',
-          animation: 'float 11s ease-in-out infinite',
-        }}
-      />
-
       {/* Glass card */}
       <div className="relative z-10 w-full max-w-[900px] mx-auto">
         <div
