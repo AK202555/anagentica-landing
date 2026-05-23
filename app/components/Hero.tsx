@@ -20,17 +20,8 @@ export default function Hero() {
         padding: '100px 24px 80px',
       }}
     >
-      {/* Glass card */}
       <div className="relative z-10 w-full max-w-[900px] mx-auto">
-        <div
-          className="text-center px-6 sm:px-12 py-14 sm:py-16"
-          style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(0,200,255,0.12)',
-            borderRadius: 32,
-            backdropFilter: 'blur(12px)',
-          }}
-        >
+        <div className="text-center px-6 sm:px-12 py-14 sm:py-16">
           {/* Badge */}
           <div className="fade-up delay-1 inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-pill border border-[rgba(0,200,255,0.3)] bg-[rgba(0,200,255,0.08)] text-[#00c8ff] text-xs font-semibold">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00c8ff] inline-block" />

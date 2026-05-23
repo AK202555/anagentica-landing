@@ -47,7 +47,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-black/88 backdrop-blur-[20px] border-b border-white/[0.07]'
-          : 'bg-gradient-to-b from-black/60 to-transparent'
+          : 'bg-gradient-to-b from-[#050b14] to-transparent'
       }`}
       style={{ height: 52 }}
     >
